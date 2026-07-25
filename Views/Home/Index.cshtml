@@ -1,0 +1,249 @@
+﻿@model IEnumerable<SHEIN_Clone_MVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+
+    .hero-banner {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        border-radius: 15px;
+        margin-bottom: 40px;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        transform: translateY(-50%);
+        color: black;
+        max-width: 45%;
+        z-index: 2;
+    }
+
+        .hero-content h1 {
+            font-size: 70px;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .hero-content p {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+    .season-text {
+        letter-spacing: 5px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 25px;
+        flex-wrap: wrap;
+    }
+
+    .product-card {
+        transition: .3s;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            height: 280px;
+            object-fit: cover;
+            transition: .3s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.03);
+        }
+
+    @@media(max-width:768px) {
+
+        .hero-banner {
+            height: 350px;
+        }
+
+        .hero-content {
+            max-width: 70%;
+            left: 5%;
+        }
+
+            .hero-content h1 {
+                font-size: 35px;
+            }
+    }
+
+</style>
+
+<!-- HERO BANNER -->
+
+<div class="hero-banner">
+
+    <img src="/Images/banner.jpg"
+         class="hero-image"
+         alt="Fashion Banner" />
+
+    <div class="hero-content">
+
+        <span class="season-text">
+            NEW SEASON
+        </span>
+
+        <h1>NEW FASHION</h1>
+        <h1>COLLECTION</h1>
+
+        <p>Discover trending styles</p>
+
+        <div class="hero-buttons">
+
+            <a asp-controller="Products"
+               asp-action="Index"
+               class="btn btn-dark">
+                Shop Now
+            </a>
+
+            <a asp-controller="Products"
+               asp-action="Index"
+               asp-route-categoryId="1"
+               class="btn btn-outline-dark">
+                Women
+            </a>
+
+            <a asp-controller="Products"
+               asp-action="Index"
+               asp-route-categoryId="2"
+               class="btn btn-outline-dark">
+                Men
+            </a>
+
+            <a asp-controller="Products"
+               asp-action="Index"
+               asp-route-categoryId="4"
+               class="btn btn-outline-dark">
+                Shoes
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FEATURED PRODUCTS -->
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            🔥 Featured Products
+        </h2>
+
+        <a asp-controller="Products"
+           asp-action="Index"
+           class="btn btn-outline-dark">
+
+            View All Products
+
+        </a>
+
+    </div>
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            var image = item.ProductVariants?
+            .SelectMany(v => v.ProductImages)
+            .FirstOrDefault(i => i.IsPrimary)
+
+            ??
+
+            item.ProductVariants?
+            .SelectMany(v => v.ProductImages)
+            .FirstOrDefault();
+
+            var variant = item.ProductVariants?.FirstOrDefault();
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+                <div class="card product-card h-100 shadow-sm border-0">
+
+                    <a asp-controller="Products"
+                       asp-action="Details"
+                       asp-route-id="@item.Id">
+
+                        @if (image != null)
+                        {
+                            <img src="@image.ImagePath"
+                                 class="card-img-top"
+                                 alt="@item.Name" />
+                        }
+                        else
+                        {
+                            <div class="bg-light"
+                                 style="height:280px;">
+                            </div>
+                        }
+
+                    </a>
+
+                    <div class="card-body">
+
+                        <h6 class="fw-bold">
+                            @item.Name
+                        </h6>
+
+                        <small class="text-muted">
+                            @item.Category?.Name
+                        </small>
+
+                        @if (variant != null)
+                        {
+                            <h5 class="text-danger mt-2">
+                                @variant.Price.ToString("C")
+                            </h5>
+                        }
+
+                    </div>
+
+                    <div class="card-footer bg-white border-0">
+
+                        <a asp-controller="Products"
+                           asp-action="Details"
+                           asp-route-id="@item.Id"
+                           class="btn btn-dark w-100">
+
+                            View Details
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

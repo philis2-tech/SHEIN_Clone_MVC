@@ -1,0 +1,708 @@
+﻿@model IEnumerable<SHEIN_Clone_MVC.Models.Product>
+
+@using SHEIN_Clone_MVC.Models
+
+@{
+    ViewData["Title"] = "Products";
+
+    var categories =
+        ViewBag.Categories as List<Category>;
+}
+
+<style>
+
+    /* =========================
+           PRODUCTS BANNER
+        ========================= */
+
+    .products-banner {
+        position: relative;
+        height: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 40px;
+    }
+
+        .products-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .products-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, .35);
+    }
+
+    .products-content {
+        position: absolute;
+        left: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+    }
+
+        .products-content h1 {
+            font-size: 58px;
+            font-weight: bold;
+        }
+
+        .products-content p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+    .products-buttons {
+        margin-top: 25px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+
+    /* =========================
+           PRODUCT CARD
+        ========================= */
+
+    .product-card {
+        transition: .3s ease;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .15) !important;
+        }
+
+        .product-card img {
+            transition: .4s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+
+    /* =========================
+           SALE BADGE
+        ========================= */
+
+    .sale-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 5;
+        font-size: 14px;
+    }
+
+
+    /* =========================
+           NEW BADGE
+        ========================= */
+
+    .new-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 5;
+    }
+
+
+    /* =========================
+           PRODUCT CARD CART ICON
+        ========================= */
+
+    .product-cart-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 20px;
+        transition: .3s ease;
+    }
+
+        .product-cart-btn:hover {
+            background-color: #333;
+            color: white;
+            transform: scale(1.1);
+        }
+
+
+    /* =========================
+           PRODUCT IMAGE LINK
+        ========================= */
+
+    .product-image-link {
+        display: block;
+        overflow: hidden;
+    }
+
+
+    /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+    @@media (max-width: 768px) {
+
+        .products-content {
+            left: 25px;
+        }
+
+            .products-content h1 {
+                font-size: 35px;
+            }
+
+            .products-content p {
+                font-size: 16px;
+            }
+    }
+
+</style>
+
+
+<!-- =====================================================
+     PRODUCTS BANNER
+===================================================== -->
+
+<div class="products-banner">
+
+    <img src="/Images/banner.jpg"
+         alt="Products Banner" />
+
+    <div class="products-overlay"></div>
+
+    <div class="products-content">
+
+        <span class="badge bg-danger mb-3 fs-6">
+            NEW ARRIVALS
+        </span>
+
+        <h1>
+            SHOP THE
+        </h1>
+
+        <h1>
+            LATEST FASHION
+        </h1>
+
+        <p>
+
+            Discover over
+            <strong>@Model.Count()</strong>
+            fashion products.
+
+        </p>
+
+        <div class="products-buttons">
+
+            <a asp-action="Index"
+               class="btn btn-light">
+
+                All Products
+
+            </a>
+
+            <a asp-action="Index"
+               asp-route-categoryId="1"
+               class="btn btn-outline-light">
+
+                Women
+
+            </a>
+
+            <a asp-action="Index"
+               asp-route-categoryId="2"
+               class="btn btn-outline-light">
+
+                Men
+
+            </a>
+
+            <a asp-action="Index"
+               asp-route-categoryId="4"
+               class="btn btn-outline-light">
+
+                Shoes
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CATEGORY BAR
+===================================================== -->
+
+<div class="container mb-5">
+
+    <div class="row text-center g-3">
+
+        <div class="col">
+
+            <a asp-action="Index"
+               asp-route-categoryId="1"
+               class="text-decoration-none text-dark">
+
+                <div class="border rounded p-3 shadow-sm">
+
+                    👗
+
+                    <p class="mb-0">
+                        Women
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <div class="col">
+
+            <a asp-action="Index"
+               asp-route-categoryId="2"
+               class="text-decoration-none text-dark">
+
+                <div class="border rounded p-3 shadow-sm">
+
+                    👔
+
+                    <p class="mb-0">
+                        Men
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <div class="col">
+
+            <a asp-action="Index"
+               asp-route-categoryId="4"
+               class="text-decoration-none text-dark">
+
+                <div class="border rounded p-3 shadow-sm">
+
+                    👟
+
+                    <p class="mb-0">
+                        Shoes
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <div class="col">
+
+            <a asp-action="Index"
+               asp-route-categoryId="7"
+               class="text-decoration-none text-dark">
+
+                <div class="border rounded p-3 shadow-sm">
+
+                    🏋️
+
+                    <p class="mb-0">
+                        Activewear
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <div class="col">
+
+            <a asp-action="Index"
+               asp-route-categoryId="9"
+               class="text-decoration-none text-dark">
+
+                <div class="border rounded p-3 shadow-sm">
+
+                    👜
+
+                    <p class="mb-0">
+                        Bags
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FLASH SALE
+===================================================== -->
+
+<div class="container mb-4">
+
+    <div class="d-flex justify-content-between">
+
+        <h2 class="fw-bold">
+
+            🔥 Flash Sale
+
+        </h2>
+
+        <span class="text-danger">
+
+            Up to 70% OFF
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FILTER BAR
+===================================================== -->
+
+<form asp-action="Index"
+      method="get"
+      class="row mb-4">
+
+    <div class="col-md-5">
+
+        <input type="text"
+               name="searchString"
+               class="form-control"
+               placeholder="Search products..."
+               value="@ViewData["CurrentFilter"]" />
+
+    </div>
+
+
+    <div class="col-md-4">
+
+        <select name="categoryId"
+                class="form-select"
+                onchange="this.form.submit()">
+
+            <option value="">
+                All Categories
+            </option>
+
+            @if (categories != null)
+            {
+                foreach (var category in categories)
+                {
+                    var selected =
+                    ViewData["CurrentCategory"]?.ToString()
+                    == category.Id.ToString();
+
+                    <option value="@category.Id"
+                            selected="@(selected ? "selected" : null)">
+
+                        @category.Name
+
+                    </option>
+                }
+            }
+
+        </select>
+
+    </div>
+
+
+    <div class="col-md-3">
+
+        <button class="btn btn-outline-primary w-100"
+                type="submit">
+
+            Filter
+
+        </button>
+
+    </div>
+
+</form>
+
+
+<!-- =====================================================
+     PRODUCT LIST
+===================================================== -->
+
+<div id="products"
+     class="container my-5">
+
+    <h1 class="mb-4 fw-bold">
+
+        Product List
+
+    </h1>
+
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning">
+
+            No products found.
+
+        </div>
+    }
+    else
+    {
+
+        <div class="row row-cols-1
+                        row-cols-sm-2
+                        row-cols-md-3
+                        row-cols-lg-4
+                        g-4">
+
+
+            @foreach (var item in Model)
+            {
+
+                var primaryImage =
+                item.ProductVariants?
+                .SelectMany(v => v.ProductImages)
+                .GroupBy(i => i.ImagePath.ToLower())
+                .Select(g => g.First())
+                .FirstOrDefault(i => i.IsPrimary)
+
+                ??
+
+                item.ProductVariants?
+                .SelectMany(v => v.ProductImages)
+                .GroupBy(i => i.ImagePath.ToLower())
+                .Select(g => g.First())
+                .FirstOrDefault();
+
+
+                var firstVariant =
+                item.ProductVariants?
+                .FirstOrDefault();
+
+
+                <div class="col">
+
+                    <div class="card product-card h-100 shadow-sm border-0">
+
+
+                        <!-- =========================
+                             SALE BADGE
+                        ========================= -->
+                        @if (item.Id % 3 == 0)
+                        {
+
+                            <span class="badge bg-danger sale-badge">
+
+                                SALE
+
+                            </span>
+
+                        }
+
+
+                        <!-- =========================
+                             NEW BADGE
+                        ========================= -->
+                        @if (item.Id % 5 == 0)
+                        {
+
+                            <span class="badge bg-success new-badge">
+
+                                NEW
+
+                            </span>
+
+                        }
+
+
+                        <!-- =========================
+                             PRODUCT IMAGE
+                        ========================= -->
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.Id"
+                           class="product-image-link">
+
+                            @if (primaryImage != null)
+                            {
+
+                                <img src="@primaryImage.ImagePath"
+                                     class="card-img-top"
+                                     style="height:250px;
+                                                        object-fit:cover;"
+                                     alt="@item.Name" />
+
+                            }
+                            else
+                            {
+
+                                <div class="bg-light
+                                                        d-flex
+                                                        align-items-center
+                                                        justify-content-center"
+                                     style="height:250px;">
+
+                                    <span class="text-muted">
+
+                                        No Image
+
+                                    </span>
+
+                                </div>
+
+                            }
+
+                        </a>
+
+
+                        <!-- =========================
+                             PRODUCT INFORMATION
+                        ========================= -->
+
+                        <div class="card-body">
+
+                            <h5>
+
+                                @item.Name
+
+                            </h5>
+
+
+                            <p class="text-muted">
+
+                                @item.Description
+
+                            </p>
+
+
+                            @if (firstVariant != null)
+                            {
+
+                                <p class="fw-bold text-primary">
+
+                                    @firstVariant.Price.ToString("C")
+
+                                </p>
+
+                            }
+
+
+                            <span class="badge bg-dark">
+
+                                @item.Category?.Name
+
+                            </span>
+
+                        </div>
+
+
+                        <!-- =========================
+                             RATING
+                        ========================= -->
+                        @{
+
+                            var rating =
+                            (item.Id % 5) + 1;
+
+                            var reviews =
+                            (item.Id * 17) % 900 + 20;
+
+                        }
+
+
+                        <div class="px-3 pb-3">
+
+                            <div class="text-warning">
+
+                                @for (int i = 1; i <= 5; i++)
+                                {
+
+                                    if (i <= rating)
+                                    {
+
+                                        <span>
+                                            ★
+                                        </span>
+
+                                    }
+                                    else
+                                    {
+
+                                        <span class="text-secondary">
+                                            ☆
+                                        </span>
+
+                                    }
+
+                                }
+
+                            </div>
+
+
+                            <small class="text-muted">
+
+                                (@reviews reviews)
+
+                            </small>
+
+                        </div>
+
+
+                        <!-- =========================
+                             CART ICON
+                        ========================= -->
+
+                        <div class="card-footer
+                                            bg-white
+                                            border-0
+                                            d-flex
+                                            justify-content-end
+                                            pb-3">
+
+                            <a asp-controller="Products"
+                               asp-action="Details"
+                               asp-route-id="@item.Id"
+                               class="product-cart-btn"
+                               title="Choose options and add to cart">
+
+                                🛒
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+
+    }
+
+</div>

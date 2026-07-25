@@ -1,0 +1,807 @@
+﻿@model SHEIN_Clone_MVC.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name;
+
+    var allImages = Model.ProductVariants?
+        .SelectMany(v => v.ProductImages)
+        .Where(i => !string.IsNullOrWhiteSpace(i.ImagePath))
+        .GroupBy(i => i.ImagePath.ToLower())
+        .Select(g => g.First())
+        .ToList()
+        ?? new List<SHEIN_Clone_MVC.Models.ProductImage>();
+
+    var mainImage =
+        allImages.FirstOrDefault(i => i.IsPrimary)
+        ?? allImages.FirstOrDefault();
+
+    var variants = Model.ProductVariants?.ToList()
+                   ?? new List<SHEIN_Clone_MVC.Models.ProductVariant>();
+
+    var availableSizes = variants
+        .Where(v => !string.IsNullOrWhiteSpace(v.Size))
+        .Select(v => v.Size.Trim())
+        .Where(s => !s.Equals("One Size", StringComparison.OrdinalIgnoreCase))
+        .Distinct(StringComparer.OrdinalIgnoreCase)
+        .ToList();
+
+    var availableColours = variants
+        .Where(v => !string.IsNullOrWhiteSpace(v.Color))
+        .Select(v => v.Color.Trim())
+        .Where(c => !c.Equals("Default", StringComparison.OrdinalIgnoreCase))
+        .Distinct(StringComparer.OrdinalIgnoreCase)
+        .ToList();
+
+    var firstVariant = variants.FirstOrDefault();
+
+    var hasSizes = availableSizes.Any();
+    var hasColours = availableColours.Any();
+}
+
+<style>
+
+    /* =========================================
+           PRODUCT GALLERY
+        ========================================= */
+
+    .product-gallery {
+        position: sticky;
+        top: 20px;
+    }
+
+    .main-image-container {
+        width: 100%;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f8f8f8;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .main-product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        cursor: zoom-in;
+        transition: .3s ease;
+    }
+
+        .main-product-image:hover {
+            transform: scale(1.03);
+        }
+
+
+    /* =========================================
+           THUMBNAILS
+        ========================================= */
+
+    .thumbnail-container {
+        display: flex;
+        gap: 12px;
+        margin-top: 15px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .thumbnail {
+        width: 85px;
+        height: 100px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: .2s ease;
+    }
+
+        .thumbnail:hover {
+            border-color: #333;
+            transform: scale(1.05);
+        }
+
+        .thumbnail.active {
+            border-color: #e91e63;
+        }
+
+
+    /* =========================================
+           SIZE BUTTONS
+        ========================================= */
+
+    .size-btn {
+        min-width: 60px;
+        padding: 10px 18px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        background: white;
+        border: 1px solid #999;
+        border-radius: 4px;
+        transition: .2s ease;
+        cursor: pointer;
+    }
+
+        .size-btn:hover {
+            border-color: black;
+        }
+
+        .size-btn.active {
+            background-color: black;
+            color: white;
+            border-color: black;
+        }
+
+
+    /* =========================================
+           COLOUR BUTTONS
+        ========================================= */
+
+    .colour-btn {
+        padding: 10px 18px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        background: white;
+        border: 1px solid #999;
+        border-radius: 4px;
+        transition: .2s ease;
+        cursor: pointer;
+    }
+
+        .colour-btn:hover {
+            border-color: black;
+        }
+
+        .colour-btn.active {
+            background-color: black;
+            color: white;
+            border-color: black;
+        }
+
+
+    /* =========================================
+           FULLSCREEN IMAGE VIEWER
+        ========================================= */
+
+    .image-viewer {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(0, 0, 0, .95);
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* =========================================
+           CLOSE BUTTON
+        ========================================= */
+
+    .close-viewer {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        z-index: 10001;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: white;
+        color: black;
+        font-size: 35px;
+        line-height: 35px;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+        .close-viewer:hover {
+            transform: scale(1.1);
+        }
+
+
+    /* =========================================
+           FULLSCREEN THUMBNAILS
+        ========================================= */
+
+    .fullscreen-thumbnails {
+        position: absolute;
+        left: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        max-height: 80vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .fullscreen-thumbnail {
+        width: 80px;
+        height: 95px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        opacity: .7;
+        transition: .2s;
+    }
+
+        .fullscreen-thumbnail:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .fullscreen-thumbnail.active {
+            border-color: #e91e63;
+            opacity: 1;
+        }
+
+
+    /* =========================================
+           FULLSCREEN MAIN IMAGE
+        ========================================= */
+
+    .fullscreen-main-image {
+        width: calc(100% - 180px);
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .fullscreen-main-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+
+    /* =========================================
+           MOBILE
+        ========================================= */
+
+    @@media (max-width: 768px) {
+
+        .product-gallery {
+            position: static;
+        }
+
+        .main-image-container {
+            height: 450px;
+        }
+
+        .fullscreen-thumbnails {
+            left: 10px;
+            width: 70px;
+        }
+
+        .fullscreen-thumbnail {
+            width: 55px;
+            height: 70px;
+        }
+
+        .fullscreen-main-image {
+            width: calc(100% - 100px);
+        }
+    }
+
+</style>
+
+
+<div class="container my-5">
+
+    <div class="row g-5">
+
+
+        <!-- ================================= -->
+        <!-- LEFT SIDE: IMAGE GALLERY -->
+        <!-- ================================= -->
+
+        <div class="col-md-6">
+
+            <div class="product-gallery">
+
+                @if (mainImage != null)
+                {
+                    <div class="main-image-container">
+
+                        <img id="mainProductImage"
+                             src="@mainImage.ImagePath"
+                             class="main-product-image"
+                             alt="@Model.Name"
+                             onclick="openFullImage()" />
+
+                    </div>
+
+
+                    <!-- THUMBNAILS -->
+
+                    <div class="thumbnail-container">
+
+                        @foreach (var image in allImages)
+                        {
+                            <img src="@image.ImagePath"
+                                 class="thumbnail @(image.ImagePath == mainImage.ImagePath ? "active" : "")"
+                                 alt="@Model.Name"
+                                 onclick="changeMainImage('@image.ImagePath', this)" />
+                        }
+
+                    </div>
+                }
+                else
+                {
+                    <div class="main-image-container">
+
+                        <span class="text-muted">
+                            No Image Available
+                        </span>
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- RIGHT SIDE: PRODUCT INFORMATION -->
+        <!-- ================================= -->
+
+        <div class="col-md-6">
+
+            <h1 class="fw-bold">
+                @Model.Name
+            </h1>
+
+
+            <p class="text-muted">
+                @Model.Description
+            </p>
+
+
+            <p>
+                <strong>Category:</strong>
+                @Model.Category?.Name
+            </p>
+
+
+            <hr />
+
+
+            <!-- ================================= -->
+            <!-- COLOUR SELECTION -->
+            <!-- ================================= -->
+            @if (hasColours)
+            {
+                <h5 class="mt-4">
+                    Colour
+                </h5>
+
+                <div class="mb-3">
+
+                    @foreach (var colour in availableColours)
+                    {
+                        <button type="button"
+                                class="colour-btn"
+                                onclick="selectColour(this, '@colour')">
+
+                            @colour
+
+                        </button>
+                    }
+
+                </div>
+
+                <p>
+
+                    <strong>
+                        Selected Colour:
+                    </strong>
+
+                    <span id="selectedColour">
+                        Please select a colour
+                    </span>
+
+                </p>
+            }
+
+
+            <!-- ================================= -->
+            <!-- SIZE SELECTION -->
+            <!-- ================================= -->
+            @if (hasSizes)
+            {
+                <h5 class="mt-4">
+                    Size
+                </h5>
+
+                <div class="mb-3">
+
+                    @foreach (var size in availableSizes)
+                    {
+                        <button type="button"
+                                class="size-btn"
+                                onclick="selectSize(this, '@size')">
+
+                            @size
+
+                        </button>
+                    }
+
+                </div>
+
+                <p>
+
+                    <strong>
+                        Selected Size:
+                    </strong>
+
+                    <span id="selectedSize">
+                        Please select a size
+                    </span>
+
+                </p>
+            }
+            else
+            {
+                <p class="text-muted mt-4">
+                    This product does not require a size selection.
+                </p>
+            }
+
+
+            <!-- ================================= -->
+            <!-- PRICE -->
+            <!-- ================================= -->
+            @if (firstVariant != null)
+            {
+                <h3 class="fw-bold text-danger mt-4">
+
+                    @firstVariant.Price.ToString("C")
+
+                </h3>
+
+                <p>
+
+                    <strong>
+                        Stock:
+                    </strong>
+
+                    @firstVariant.Stock
+
+                </p>
+            }
+
+
+            <!-- ================================= -->
+            <!-- ADD TO CART -->
+            <!-- ================================= -->
+
+            <div class="mt-4">
+
+                <form asp-controller="Cart"
+                      asp-action="AddToCart"
+                      method="post"
+                      onsubmit="return validateSelection()">
+
+                    <input type="hidden"
+                           name="id"
+                           value="@Model.Id" />
+
+                    <input type="hidden"
+                           id="selectedSizeInput"
+                           name="size"
+                           value="" />
+
+                    <input type="hidden"
+                           id="selectedColourInput"
+                           name="colour"
+                           value="" />
+
+
+                    <button type="submit"
+                            class="btn btn-dark btn-lg me-2">
+
+                        Add To Cart
+
+                    </button>
+
+
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary btn-lg">
+
+                        Back To Products
+
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     FULLSCREEN IMAGE VIEWER
+========================================= -->
+
+<div id="imageViewer"
+     class="image-viewer">
+
+
+    <!-- CLOSE BUTTON -->
+
+    <button type="button"
+            class="close-viewer"
+            onclick="closeFullImage()">
+
+        &times;
+
+    </button>
+
+
+    <!-- LEFT THUMBNAILS -->
+
+    <div class="fullscreen-thumbnails">
+
+        @foreach (var image in allImages)
+        {
+            <img src="@image.ImagePath"
+                 class="fullscreen-thumbnail @(image.ImagePath == mainImage?.ImagePath ? "active" : "")"
+                 onclick="changeFullscreenImage('@image.ImagePath', this)"
+                 alt="@Model.Name" />
+        }
+
+    </div>
+
+
+    <!-- LARGE IMAGE -->
+
+    <div class="fullscreen-main-image">
+
+        <img id="fullImage"
+             src=""
+             alt="@Model.Name" />
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+    /* =========================================
+       CHANGE MAIN IMAGE
+    ========================================= */
+
+    function changeMainImage(imagePath, thumbnail) {
+
+        const mainImage =
+            document.getElementById("mainProductImage");
+
+        mainImage.src = imagePath;
+
+
+        document
+            .querySelectorAll(".thumbnail")
+            .forEach(image => {
+
+                image.classList.remove("active");
+
+            });
+
+
+        thumbnail.classList.add("active");
+    }
+
+
+    /* =========================================
+       OPEN FULLSCREEN IMAGE
+    ========================================= */
+
+    function openFullImage() {
+
+        const mainImage =
+            document.getElementById("mainProductImage");
+
+        const fullImage =
+            document.getElementById("fullImage");
+
+        const viewer =
+            document.getElementById("imageViewer");
+
+
+        fullImage.src = mainImage.src;
+
+
+        // Highlight the currently selected image
+        document
+            .querySelectorAll(".fullscreen-thumbnail")
+            .forEach(thumbnail => {
+
+                thumbnail.classList.toggle(
+                    "active",
+                    thumbnail.src === mainImage.src
+                );
+
+            });
+
+
+        viewer.style.display = "flex";
+
+        document.body.style.overflow = "hidden";
+    }
+
+
+    /* =========================================
+       CHANGE FULLSCREEN IMAGE
+    ========================================= */
+
+    function changeFullscreenImage(imagePath, thumbnail) {
+
+        const fullImage =
+            document.getElementById("fullImage");
+
+        fullImage.src = imagePath;
+
+
+        document
+            .querySelectorAll(".fullscreen-thumbnail")
+            .forEach(image => {
+
+                image.classList.remove("active");
+
+            });
+
+
+        thumbnail.classList.add("active");
+    }
+
+
+    /* =========================================
+       CLOSE FULLSCREEN IMAGE
+    ========================================= */
+
+    function closeFullImage() {
+
+        document
+            .getElementById("imageViewer")
+            .style.display = "none";
+
+        document.body.style.overflow = "auto";
+    }
+
+
+    /* =========================================
+       SELECT SIZE
+    ========================================= */
+
+    function selectSize(button, size) {
+
+        document
+            .querySelectorAll(".size-btn")
+            .forEach(btn => {
+
+                btn.classList.remove("active");
+
+            });
+
+
+        button.classList.add("active");
+
+
+        document
+            .getElementById("selectedSize")
+            .innerText = size;
+
+
+        document
+            .getElementById("selectedSizeInput")
+            .value = size;
+    }
+
+
+    /* =========================================
+       SELECT COLOUR
+    ========================================= */
+
+    function selectColour(button, colour) {
+
+        document
+            .querySelectorAll(".colour-btn")
+            .forEach(btn => {
+
+                btn.classList.remove("active");
+
+            });
+
+
+        button.classList.add("active");
+
+
+        document
+            .getElementById("selectedColour")
+            .innerText = colour;
+
+
+        document
+            .getElementById("selectedColourInput")
+            .value = colour;
+    }
+
+
+    /* =========================================
+       VALIDATE BEFORE ADDING TO CART
+    ========================================= */
+
+    function validateSelection() {
+
+        const hasSizes =
+            document.querySelectorAll(".size-btn").length > 0;
+
+
+        const hasColours =
+            document.querySelectorAll(".colour-btn").length > 0;
+
+
+        if (hasSizes) {
+
+            const selectedSize =
+                document.getElementById("selectedSizeInput").value;
+
+
+            if (!selectedSize) {
+
+                alert(
+                    "Please select a size before adding this item to your cart."
+                );
+
+                return false;
+            }
+        }
+
+
+        if (hasColours) {
+
+            const selectedColour =
+                document.getElementById("selectedColourInput").value;
+
+
+            if (!selectedColour) {
+
+                alert(
+                    "Please select a colour before adding this item to your cart."
+                );
+
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
+
+    /* =========================================
+       CLOSE WITH ESCAPE KEY
+    ========================================= */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            closeFullImage();
+
+        }
+
+    });
+
+</script>
