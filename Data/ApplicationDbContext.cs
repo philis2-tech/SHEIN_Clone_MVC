@@ -1,5 +1,4 @@
-﻿
-using global::SHEIN_Clone_MVC.Models;
+﻿using global::SHEIN_Clone_MVC.Models;
 using Microsoft.EntityFrameworkCore;
 using SHEIN_Clone_MVC.Models;
 using System.Collections.Generic;

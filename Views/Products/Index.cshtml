@@ -1,708 +1,1007 @@
 ﻿@model IEnumerable<SHEIN_Clone_MVC.Models.Product>
 
 @using SHEIN_Clone_MVC.Models
+@using System
+@using System.Linq
 
 @{
     ViewData["Title"] = "Products";
 
-    var categories =
-        ViewBag.Categories as List<Category>;
+    var categories = ViewBag.Categories as List<Category>;
 }
 
 <style>
+    :root {
+        --fashion-pink: #ff4f93;
+        --fashion-pink-dark: #e9367b;
+        --fashion-pink-light: #fff0f6;
+        --fashion-black: #111111;
+        --fashion-grey: #f7f7f7;
+    }
 
-    /* =========================
+    /* =========================================
+           GENERAL PRODUCT PAGE
+        ========================================= */
+
+    .products-page {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px 50px;
+    }
+
+    /* =========================================
            PRODUCTS BANNER
-        ========================= */
+        ========================================= */
 
     .products-banner {
         position: relative;
-        height: 300px;
-        border-radius: 15px;
+        height: 320px;
+        width: 100%;
+        max-width: 1240px;
+        margin: 20px auto 35px;
         overflow: hidden;
-        margin-bottom: 40px;
+        border-radius: 14px;
+        background: #e8d8dd;
     }
 
         .products-banner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform .5s ease;
+        }
+
+        .products-banner:hover img {
+            transform: scale(1.02);
         }
 
     .products-overlay {
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, .35);
+        background: linear-gradient( 90deg, rgba(0, 0, 0, .55), rgba(0, 0, 0, .18) );
     }
 
     .products-content {
         position: absolute;
-        left: 60px;
         top: 50%;
+        left: 5%;
+        right: 5%;
         transform: translateY(-50%);
+        z-index: 2;
         color: white;
     }
 
-        .products-content h1 {
-            font-size: 58px;
-            font-weight: bold;
-        }
+    .products-label {
+        display: inline-block;
+        padding: 6px 13px;
+        margin-bottom: 12px;
+        border-radius: 5px;
+        background: var(--fashion-pink);
+        color: white;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
 
-        .products-content p {
-            font-size: 20px;
-            margin-top: 10px;
-        }
+    .products-content h1 {
+        max-width: 600px;
+        margin-bottom: 12px;
+        font-size: clamp(30px, 4vw, 52px);
+        font-weight: 800;
+        line-height: 1.15;
+        text-transform: uppercase;
+    }
+
+    .products-content p {
+        margin-bottom: 0;
+        font-size: 18px;
+    }
 
     .products-buttons {
-        margin-top: 25px;
         display: flex;
-        gap: 10px;
         flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
     }
 
-
-    /* =========================
-           PRODUCT CARD
-        ========================= */
-
-    .product-card {
-        transition: .3s ease;
-        overflow: hidden;
-        border-radius: 8px;
-    }
-
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .15) !important;
-        }
-
-        .product-card img {
-            transition: .4s ease;
-        }
-
-        .product-card:hover img {
-            transform: scale(1.05);
-        }
-
-
-    /* =========================
-           SALE BADGE
-        ========================= */
-
-    .sale-badge {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        z-index: 5;
-        font-size: 14px;
-    }
-
-
-    /* =========================
-           NEW BADGE
-        ========================= */
-
-    .new-badge {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        z-index: 5;
-    }
-
-
-    /* =========================
-           PRODUCT CARD CART ICON
-        ========================= */
-
-    .product-cart-btn {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        background-color: black;
+    .products-banner-btn {
+        display: inline-block;
+        padding: 10px 15px;
+        border: 1px solid white;
+        border-radius: 5px;
         color: white;
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+
+        .products-banner-btn:hover {
+            background: white;
+            color: var(--fashion-black);
+        }
+
+        .products-banner-btn.primary {
+            background: white;
+            color: var(--fashion-black);
+        }
+
+            .products-banner-btn.primary:hover {
+                background: var(--fashion-pink);
+                border-color: var(--fashion-pink);
+                color: white;
+            }
+
+    /* =========================================
+           CATEGORY SECTION
+        ========================================= */
+
+    .fashion-category-section {
+        width: 100%;
+        max-width: 1240px;
+        margin: 35px auto 50px;
+    }
+
+    .fashion-category-heading {
+        margin-bottom: 20px;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .fashion-category-list {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .fashion-category-item {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 8px;
+        border: 1px solid #eeeeee;
+        border-radius: 12px;
+        background: white;
+        color: #222222;
+        text-decoration: none;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all .25s ease;
+    }
+
+        .fashion-category-item:hover {
+            border-color: var(--fashion-pink);
+            color: var(--fashion-pink-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(255, 79, 147, .12);
+        }
+
+    .fashion-category-circle {
+        width: 85px;
+        height: 85px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 50%;
+        background: var(--fashion-pink-light);
+        font-size: 35px;
+        transition: all .25s ease;
+    }
+
+    .fashion-category-item:hover .fashion-category-circle {
+        background: #ffe0ed;
+        transform: scale(1.05);
+    }
+
+    /* =========================================
+           FLASH SALE
+        ========================================= */
+
+    .flash-sale-section {
+        max-width: 1240px;
+        margin: 45px auto 25px;
+    }
+
+    .flash-sale-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+        .flash-sale-heading h2 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .flash-sale-heading span {
+            color: var(--fashion-pink-dark);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+    .flash-sale-line {
+        height: 3px;
+        width: 100%;
+        margin-top: 15px;
+        border-radius: 5px;
+        background: linear-gradient( 90deg, var(--fashion-pink), #ffe0ed, transparent );
+    }
+
+    /* =========================================
+           FILTER BAR
+        ========================================= */
+
+    .product-filter-form {
+        max-width: 1240px;
+        margin: 25px auto 35px;
+        padding: 20px;
+        border: 1px solid #eeeeee;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, .03);
+    }
+
+        .product-filter-form .form-control,
+        .product-filter-form .form-select {
+            min-height: 45px;
+            border-color: #dddddd;
+        }
+
+            .product-filter-form .form-control:focus,
+            .product-filter-form .form-select:focus {
+                border-color: var(--fashion-pink);
+                box-shadow: 0 0 0 .2rem rgba(255, 79, 147, .15);
+            }
+
+    .filter-btn {
+        min-height: 45px;
+        width: 100%;
+        border: 1px solid var(--fashion-pink);
+        border-radius: 6px;
+        background: var(--fashion-pink);
+        color: white;
+        font-weight: 600;
+        transition: all .2s ease;
+    }
+
+        .filter-btn:hover {
+            background: var(--fashion-pink-dark);
+            border-color: var(--fashion-pink-dark);
+            color: white;
+        }
+
+    /* =========================================
+           PRODUCT LIST HEADING
+        ========================================= */
+
+    .product-list-section {
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+
+    .product-list-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+    }
+
+        .product-list-heading h2 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+    .product-count-label {
+        color: #777777;
+        font-size: 14px;
+    }
+
+    /* =========================================
+           PRODUCT CARDS
+        ========================================= */
+
+    .product-card {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        border: 1px solid #eeeeee !important;
+        border-radius: 10px;
+        background: white;
+        transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .09) !important;
+        }
+
+    .product-image-link {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        background: var(--fashion-grey);
         text-decoration: none;
-        font-size: 20px;
-        transition: .3s ease;
+    }
+
+    .product-image {
+        display: block;
+        width: 100%;
+        height: 270px;
+        object-fit: cover;
+        transition: transform .4s ease;
+    }
+
+    .product-card:hover .product-image {
+        transform: scale(1.04);
+    }
+
+    .product-no-image {
+        width: 100%;
+        height: 270px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--fashion-grey);
+        color: #777777;
+        font-size: 14px;
+    }
+
+    /* =========================================
+           PRODUCT BADGES
+        ========================================= */
+
+    .sale-badge,
+    .new-badge {
+        position: absolute;
+        top: 12px;
+        z-index: 5;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .sale-badge {
+        left: 12px;
+        background: var(--fashion-pink);
+        color: white;
+    }
+
+    .new-badge {
+        right: 12px;
+        background: var(--fashion-black);
+        color: white;
+    }
+
+    /* =========================================
+           PRODUCT INFORMATION
+        ========================================= */
+
+    .product-card .card-body {
+        padding: 16px;
+    }
+
+    .product-name {
+        display: -webkit-box;
+        overflow: hidden;
+        min-height: 42px;
+        margin-bottom: 8px;
+        color: #222222;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.4;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .product-description {
+        display: -webkit-box;
+        overflow: hidden;
+        min-height: 36px;
+        margin-bottom: 12px;
+        color: #777777;
+        font-size: 12px;
+        line-height: 1.5;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .product-price {
+        margin-bottom: 12px;
+        color: var(--fashion-pink-dark);
+        font-size: 19px;
+        font-weight: 800;
+    }
+
+    .product-category-badge {
+        display: inline-block;
+        padding: 5px 9px;
+        border-radius: 4px;
+        background: var(--fashion-pink-light);
+        color: var(--fashion-pink-dark);
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    /* =========================================
+           PRODUCT CARD FOOTER
+        ========================================= */
+
+    .product-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0 16px 16px;
+        background: white;
+    }
+
+    .view-product-link {
+        color: #555555;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .view-product-link:hover {
+            color: var(--fashion-pink-dark);
+        }
+
+    .product-cart-btn {
+        width: 42px;
+        height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: var(--fashion-pink);
+        color: white;
+        font-size: 19px;
+        text-decoration: none;
+        transition: all .25s ease;
     }
 
         .product-cart-btn:hover {
-            background-color: #333;
+            transform: scale(1.08);
+            background: var(--fashion-black);
             color: white;
-            transform: scale(1.1);
         }
 
+    /* =========================================
+           EMPTY RESULTS
+        ========================================= */
 
-    /* =========================
-           PRODUCT IMAGE LINK
-        ========================= */
-
-    .product-image-link {
-        display: block;
-        overflow: hidden;
+    .no-products-message {
+        padding: 45px 20px;
+        border: 1px dashed #f2b4cd;
+        border-radius: 12px;
+        background: var(--fashion-pink-light);
+        text-align: center;
     }
 
+        .no-products-message h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+            font-weight: 700;
+        }
 
-    /* =========================
+        .no-products-message p {
+            margin-bottom: 20px;
+            color: #666666;
+        }
+
+    .reset-filter-btn {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 6px;
+        background: var(--fashion-pink);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .reset-filter-btn:hover {
+            background: var(--fashion-pink-dark);
+            color: white;
+        }
+
+    /* =========================================
            RESPONSIVE DESIGN
-        ========================= */
+        ========================================= */
+
+    @@media (max-width: 992px) {
+        .fashion-category-list {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .product-image {
+            height: 250px;
+        }
+
+        .products-banner {
+            height: 290px;
+        }
+    }
 
     @@media (max-width: 768px) {
+        .products-page {
+            padding: 0 12px 35px;
+        }
+
+        .products-banner {
+            height: 260px;
+            margin: 15px auto 25px;
+            border-radius: 10px;
+        }
 
         .products-content {
-            left: 25px;
+            left: 22px;
+            right: 22px;
         }
 
             .products-content h1 {
-                font-size: 35px;
+                font-size: 32px;
             }
 
             .products-content p {
-                font-size: 16px;
+                font-size: 15px;
             }
+
+        .products-banner-btn {
+            padding: 8px 11px;
+            font-size: 13px;
+        }
+
+        .fashion-category-section {
+            margin: 25px auto 35px;
+        }
+
+        .fashion-category-list {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .fashion-category-item {
+            gap: 8px;
+            padding: 12px 5px;
+            font-size: 12px;
+        }
+
+        .fashion-category-circle {
+            width: 65px;
+            height: 65px;
+            font-size: 28px;
+        }
+
+        .flash-sale-section {
+            margin-top: 35px;
+        }
+
+        .flash-sale-heading h2,
+        .product-list-heading h2 {
+            font-size: 23px;
+        }
+
+        .product-filter-form {
+            padding: 15px;
+        }
+
+        .product-image,
+        .product-no-image {
+            height: 230px;
+        }
     }
 
+    @@media (max-width: 400px) {
+        .products-content h1 {
+            font-size: 27px;
+        }
+
+        .products-content p {
+            font-size: 13px;
+        }
+
+        .fashion-category-list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .product-image,
+        .product-no-image {
+            height: 210px;
+        }
+    }
 </style>
 
+<div class="products-page">
 
-<!-- =====================================================
-     PRODUCTS BANNER
-===================================================== -->
+    <!-- =========================================
+         PRODUCTS BANNER
+    ========================================= -->
 
-<div class="products-banner">
+    <section class="products-banner">
 
-    <img src="/Images/banner.jpg"
-         alt="Products Banner" />
+        <img src="~/Images/banner.jpg"
+             asp-append-version="true"
+             alt="Latest fashion collection" />
 
-    <div class="products-overlay"></div>
+        <div class="products-overlay"></div>
 
-    <div class="products-content">
+        <div class="products-content">
 
-        <span class="badge bg-danger mb-3 fs-6">
-            NEW ARRIVALS
-        </span>
+            <span class="products-label">
+                New Arrivals
+            </span>
 
-        <h1>
-            SHOP THE
-        </h1>
+            <h1>
+                Shop the Latest Fashion
+            </h1>
 
-        <h1>
-            LATEST FASHION
-        </h1>
+            <p>
+                Discover your next favourite look.
+            </p>
 
-        <p>
+            <div class="products-buttons">
 
-            Discover over
-            <strong>@Model.Count()</strong>
-            fashion products.
+                <a asp-action="Index"
+                   class="products-banner-btn primary">
+                    All Products
+                </a>
 
-        </p>
+                @if (categories != null)
+                {
+                    var bannerCategories = categories
+                    .Where(c =>
+                    c.Name.Equals(
+                    "Women",
+                    StringComparison.OrdinalIgnoreCase)
+                    || c.Name.Equals(
+                    "Men",
+                    StringComparison.OrdinalIgnoreCase)
+                    || c.Name.Equals(
+                    "Shoes",
+                    StringComparison.OrdinalIgnoreCase))
+                    .ToList();
 
-        <div class="products-buttons">
+                    foreach (var category in bannerCategories)
+                    {
+                        <a asp-action="Index"
+                           asp-route-categoryId="@category.Id"
+                           class="products-banner-btn">
+                            @category.Name
+                        </a>
+                    }
+                }
 
-            <a asp-action="Index"
-               class="btn btn-light">
-
-                All Products
-
-            </a>
-
-            <a asp-action="Index"
-               asp-route-categoryId="1"
-               class="btn btn-outline-light">
-
-                Women
-
-            </a>
-
-            <a asp-action="Index"
-               asp-route-categoryId="2"
-               class="btn btn-outline-light">
-
-                Men
-
-            </a>
-
-            <a asp-action="Index"
-               asp-route-categoryId="4"
-               class="btn btn-outline-light">
-
-                Shoes
-
-            </a>
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</div>
+    <!-- =========================================
+         CATEGORY SECTION
+    ========================================= -->
 
+    <section class="fashion-category-section">
 
-<!-- =====================================================
-     CATEGORY BAR
-===================================================== -->
-
-<div class="container mb-5">
-
-    <div class="row text-center g-3">
-
-        <div class="col">
-
-            <a asp-action="Index"
-               asp-route-categoryId="1"
-               class="text-decoration-none text-dark">
-
-                <div class="border rounded p-3 shadow-sm">
-
-                    👗
-
-                    <p class="mb-0">
-                        Women
-                    </p>
-
-                </div>
-
-            </a>
-
-        </div>
-
-
-        <div class="col">
-
-            <a asp-action="Index"
-               asp-route-categoryId="2"
-               class="text-decoration-none text-dark">
-
-                <div class="border rounded p-3 shadow-sm">
-
-                    👔
-
-                    <p class="mb-0">
-                        Men
-                    </p>
-
-                </div>
-
-            </a>
-
-        </div>
-
-
-        <div class="col">
-
-            <a asp-action="Index"
-               asp-route-categoryId="4"
-               class="text-decoration-none text-dark">
-
-                <div class="border rounded p-3 shadow-sm">
-
-                    👟
-
-                    <p class="mb-0">
-                        Shoes
-                    </p>
-
-                </div>
-
-            </a>
-
-        </div>
-
-
-        <div class="col">
-
-            <a asp-action="Index"
-               asp-route-categoryId="7"
-               class="text-decoration-none text-dark">
-
-                <div class="border rounded p-3 shadow-sm">
-
-                    🏋️
-
-                    <p class="mb-0">
-                        Activewear
-                    </p>
-
-                </div>
-
-            </a>
-
-        </div>
-
-
-        <div class="col">
-
-            <a asp-action="Index"
-               asp-route-categoryId="9"
-               class="text-decoration-none text-dark">
-
-                <div class="border rounded p-3 shadow-sm">
-
-                    👜
-
-                    <p class="mb-0">
-                        Bags
-                    </p>
-
-                </div>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     FLASH SALE
-===================================================== -->
-
-<div class="container mb-4">
-
-    <div class="d-flex justify-content-between">
-
-        <h2 class="fw-bold">
-
-            🔥 Flash Sale
-
+        <h2 class="fashion-category-heading">
+            Shop by Category
         </h2>
 
-        <span class="text-danger">
-
-            Up to 70% OFF
-
-        </span>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     FILTER BAR
-===================================================== -->
-
-<form asp-action="Index"
-      method="get"
-      class="row mb-4">
-
-    <div class="col-md-5">
-
-        <input type="text"
-               name="searchString"
-               class="form-control"
-               placeholder="Search products..."
-               value="@ViewData["CurrentFilter"]" />
-
-    </div>
-
-
-    <div class="col-md-4">
-
-        <select name="categoryId"
-                class="form-select"
-                onchange="this.form.submit()">
-
-            <option value="">
-                All Categories
-            </option>
+        <div class="fashion-category-list">
 
             @if (categories != null)
             {
+                var categoryIcons = new Dictionary<string, string>(
+                StringComparer.OrdinalIgnoreCase)
+                        {
+                        { "Women", "👗" },
+                        { "Men", "👔" },
+                        { "Kids", "🧸" },
+                        { "Shoes", "👠" },
+                        { "Activewear", "🏋️" },
+                        { "Jewellery & Accessories", "💍" },
+                        { "Bags & Luggages", "👜" },
+                        { "Beachwear", "👙" },
+                        { "Nightwear", "🌙" },
+                        { "Toys", "🧸" },
+                        { "Appliances", "🏠" }
+                        };
+
                 foreach (var category in categories)
                 {
-                    var selected =
-                    ViewData["CurrentCategory"]?.ToString()
-                    == category.Id.ToString();
+                    var icon = categoryIcons.TryGetValue(
+                    category.Name,
+                    out var categoryIcon)
+                    ? categoryIcon
+                    : "🛍️";
 
-                    <option value="@category.Id"
-                            selected="@(selected ? "selected" : null)">
+                    <a asp-action="Index"
+                       asp-route-categoryId="@category.Id"
+                       class="fashion-category-item">
 
-                        @category.Name
+                        <div class="fashion-category-circle">
+                            @icon
+                        </div>
 
-                    </option>
+                        <span>
+                            @category.Name
+                        </span>
+
+                    </a>
                 }
             }
 
-        </select>
+        </div>
 
-    </div>
+    </section>
 
+    <!-- =========================================
+         FLASH SALE HEADING
+    ========================================= -->
 
-    <div class="col-md-3">
+    <section class="flash-sale-section">
 
-        <button class="btn btn-outline-primary w-100"
-                type="submit">
+        <div class="flash-sale-heading">
 
-            Filter
+            <h2>
+                🔥 Flash Sale
+            </h2>
 
-        </button>
-
-    </div>
-
-</form>
-
-
-<!-- =====================================================
-     PRODUCT LIST
-===================================================== -->
-
-<div id="products"
-     class="container my-5">
-
-    <h1 class="mb-4 fw-bold">
-
-        Product List
-
-    </h1>
-
-
-    @if (!Model.Any())
-    {
-        <div class="alert alert-warning">
-
-            No products found.
+            <span>
+                Discover your next favourite piece
+            </span>
 
         </div>
-    }
-    else
-    {
 
-        <div class="row row-cols-1
-                        row-cols-sm-2
-                        row-cols-md-3
-                        row-cols-lg-4
-                        g-4">
+        <div class="flash-sale-line"></div>
 
+    </section>
 
-            @foreach (var item in Model)
-            {
+    <!-- =========================================
+         SEARCH AND CATEGORY FILTERS
+    ========================================= -->
 
-                var primaryImage =
-                item.ProductVariants?
-                .SelectMany(v => v.ProductImages)
-                .GroupBy(i => i.ImagePath.ToLower())
-                .Select(g => g.First())
-                .FirstOrDefault(i => i.IsPrimary)
+    <form asp-action="Index"
+          method="get"
+          class="product-filter-form">
 
-                ??
+        <div class="row g-3 align-items-center">
 
-                item.ProductVariants?
-                .SelectMany(v => v.ProductImages)
-                .GroupBy(i => i.ImagePath.ToLower())
-                .Select(g => g.First())
-                .FirstOrDefault();
+            <div class="col-12 col-md-5">
 
+                <input type="text"
+                       name="searchString"
+                       class="form-control"
+                       placeholder="Search your favourite fashion..."
+                       value="@ViewData["CurrentFilter"]"
+                       aria-label="Search products" />
 
-                var firstVariant =
-                item.ProductVariants?
-                .FirstOrDefault();
+            </div>
 
+            <div class="col-12 col-md-4">
 
-                <div class="col">
+                <select name="categoryId"
+                        class="form-select"
+                        aria-label="Filter by category">
 
-                    <div class="card product-card h-100 shadow-sm border-0">
+                    <option value="">
+                        All Categories
+                    </option>
 
-
-                        <!-- =========================
-                             SALE BADGE
-                        ========================= -->
-                        @if (item.Id % 3 == 0)
+                    @if (categories != null)
+                    {
+                        foreach (var category in categories)
                         {
+                            var selected =
+                            ViewData["CurrentCategory"]?.ToString()
+                            == category.Id.ToString();
 
-                            <span class="badge bg-danger sale-badge">
-
-                                SALE
-
-                            </span>
-
+                            <option value="@category.Id"
+                                    selected="@selected">
+                                @category.Name
+                            </option>
                         }
+                    }
 
+                </select>
 
-                        <!-- =========================
-                             NEW BADGE
-                        ========================= -->
-                        @if (item.Id % 5 == 0)
-                        {
+            </div>
 
-                            <span class="badge bg-success new-badge">
+            <div class="col-12 col-md-3">
 
-                                NEW
+                <button type="submit"
+                        class="filter-btn">
+                    Search Products
+                </button>
 
-                            </span>
+            </div>
 
-                        }
+        </div>
 
+    </form>
 
-                        <!-- =========================
-                             PRODUCT IMAGE
-                        ========================= -->
+    <!-- =========================================
+         PRODUCT LIST
+    ========================================= -->
 
-                        <a asp-action="Details"
-                           asp-route-id="@item.Id"
-                           class="product-image-link">
+    <section id="products"
+             class="product-list-section">
 
-                            @if (primaryImage != null)
+        <div class="product-list-heading">
+
+            <h2>
+                Our Products
+            </h2>
+
+            <span class="product-count-label">
+                Find something you love.
+            </span>
+
+        </div>
+
+        @if (Model == null || !Model.Any())
+        {
+            <div class="no-products-message">
+
+                <h3>
+                    No products found
+                </h3>
+
+                <p>
+                    Try another search or browse all our products.
+                </p>
+
+                <a asp-action="Index"
+                   class="reset-filter-btn">
+                    View All Products
+                </a>
+
+            </div>
+        }
+        else
+        {
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4">
+
+                @foreach (var item in Model)
+                {
+                    var productImages = item.ProductVariants?
+                    .Where(v => v.ProductImages != null)
+                    .SelectMany(v => v.ProductImages)
+                    .Where(i => !string.IsNullOrWhiteSpace(i.ImagePath))
+                    .GroupBy(
+                    i => i.ImagePath,
+                    StringComparer.OrdinalIgnoreCase)
+                    .Select(g => g.First())
+                    .ToList();
+
+                    var primaryImage = productImages?
+                    .FirstOrDefault(i => i.IsPrimary)
+                    ?? productImages?.FirstOrDefault();
+
+                    var firstVariant = item.ProductVariants?
+                    .FirstOrDefault();
+
+                    <div class="col">
+
+                        <article class="card product-card shadow-sm">
+
+                            <!-- PRODUCT BADGES -->
+                            @if (item.Id % 3 == 0)
                             {
-
-                                <img src="@primaryImage.ImagePath"
-                                     class="card-img-top"
-                                     style="height:250px;
-                                                        object-fit:cover;"
-                                     alt="@item.Name" />
-
+                                <span class="sale-badge">
+                                    SALE
+                                </span>
                             }
-                            else
+
+                            @if (item.Id % 5 == 0)
                             {
-
-                                <div class="bg-light
-                                                        d-flex
-                                                        align-items-center
-                                                        justify-content-center"
-                                     style="height:250px;">
-
-                                    <span class="text-muted">
-
-                                        No Image
-
-                                    </span>
-
-                                </div>
-
+                                <span class="new-badge">
+                                    NEW
+                                </span>
                             }
 
-                        </a>
+                            <!-- PRODUCT IMAGE -->
 
+                            <a asp-action="Details"
+                               asp-route-id="@item.Id"
+                               class="product-image-link">
 
-                        <!-- =========================
-                             PRODUCT INFORMATION
-                        ========================= -->
-
-                        <div class="card-body">
-
-                            <h5>
-
-                                @item.Name
-
-                            </h5>
-
-
-                            <p class="text-muted">
-
-                                @item.Description
-
-                            </p>
-
-
-                            @if (firstVariant != null)
-                            {
-
-                                <p class="fw-bold text-primary">
-
-                                    @firstVariant.Price.ToString("C")
-
-                                </p>
-
-                            }
-
-
-                            <span class="badge bg-dark">
-
-                                @item.Category?.Name
-
-                            </span>
-
-                        </div>
-
-
-                        <!-- =========================
-                             RATING
-                        ========================= -->
-                        @{
-
-                            var rating =
-                            (item.Id % 5) + 1;
-
-                            var reviews =
-                            (item.Id * 17) % 900 + 20;
-
-                        }
-
-
-                        <div class="px-3 pb-3">
-
-                            <div class="text-warning">
-
-                                @for (int i = 1; i <= 5; i++)
+                                @if (primaryImage != null)
                                 {
+                                    <img src="@primaryImage.ImagePath"
+                                         class="product-image"
+                                         alt="@item.Name"
+                                         loading="lazy" />
+                                }
+                                else
+                                {
+                                    <div class="product-no-image">
+                                        No Image Available
+                                    </div>
+                                }
 
-                                    if (i <= rating)
-                                    {
+                            </a>
 
-                                        <span>
-                                            ★
-                                        </span>
+                            <!-- PRODUCT INFORMATION -->
 
-                                    }
-                                    else
-                                    {
+                            <div class="card-body">
 
-                                        <span class="text-secondary">
-                                            ☆
-                                        </span>
+                                <h3 class="product-name">
+                                    @item.Name
+                                </h3>
 
-                                    }
+                                @if (!string.IsNullOrWhiteSpace(item.Description))
+                                {
+                                    <p class="product-description">
+                                        @item.Description
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p class="product-description">
+                                        Discover this fashion item.
+                                    </p>
+                                }
 
+                                @if (firstVariant != null)
+                                {
+                                    <p class="product-price">
+                                        @firstVariant.Price.ToString("C")
+                                    </p>
+                                }
+
+                                @if (item.Category != null)
+                                {
+                                    <span class="product-category-badge">
+                                        @item.Category.Name
+                                    </span>
                                 }
 
                             </div>
 
+                            <!-- PRODUCT ACTIONS -->
 
-                            <small class="text-muted">
+                            <div class="product-card-footer">
 
-                                (@reviews reviews)
+                                <a asp-action="Details"
+                                   asp-route-id="@item.Id"
+                                   class="view-product-link">
+                                    View Details
+                                </a>
 
-                            </small>
+                                <a asp-controller="Products"
+                                   asp-action="Details"
+                                   asp-route-id="@item.Id"
+                                   class="product-cart-btn"
+                                   title="Choose size and colour"
+                                   aria-label="View @item.Name details">
 
-                        </div>
+                                    🛍️
 
+                                </a>
 
-                        <!-- =========================
-                             CART ICON
-                        ========================= -->
+                            </div>
 
-                        <div class="card-footer
-                                            bg-white
-                                            border-0
-                                            d-flex
-                                            justify-content-end
-                                            pb-3">
-
-                            <a asp-controller="Products"
-                               asp-action="Details"
-                               asp-route-id="@item.Id"
-                               class="product-cart-btn"
-                               title="Choose options and add to cart">
-
-                                🛒
-
-                            </a>
-
-                        </div>
-
+                        </article>
 
                     </div>
+                }
 
-                </div>
+            </div>
+        }
 
-            }
-
-        </div>
-
-    }
+    </section>
 
 </div>
