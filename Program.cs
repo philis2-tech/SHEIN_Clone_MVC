@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SHEIN_Clone_MVC.Data;
 using SHEIN_Clone_MVC.Helpers;
+using System.IO;
 
 namespace SHEIN_Clone_MVC
 {
@@ -10,14 +11,20 @@ namespace SHEIN_Clone_MVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // -------------------------
-            // DATABASE
-            // -------------------------
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    builder.Configuration.GetConnectionString("DefaultConnection")
-                )
-            );
+
+        // =====================================
+        // DATABASE CONFIGURATION
+        // =====================================
+
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(
+                builder.Configuration.GetConnectionString("DefaultConnection")
+            )
+        );
+
+            // =====================================
+            // SESSION CONFIGURATION
+            // =====================================
 
             builder.Services.AddDistributedMemoryCache();
 
@@ -27,61 +34,105 @@ namespace SHEIN_Clone_MVC
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
-            // -------------------------
-            // MVC
-            // -------------------------
+
+            // =====================================
+            // MVC CONFIGURATION
+            // =====================================
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
-            // -------------------------
+            // =====================================
+            // WEB ROOT CONFIGURATION
+            // =====================================
+
+            var webRoot = app.Environment.WebRootPath;
+
+            if (string.IsNullOrWhiteSpace(webRoot))
+            {
+                webRoot = Path.Combine(
+                    app.Environment.ContentRootPath,
+                    "wwwroot"
+                );
+
+                Directory.CreateDirectory(webRoot);
+            }
+
+            // =====================================
             // ERROR HANDLING
-            // -------------------------
+            // =====================================
+
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
 
-            // -------------------------
-            // CORE MIDDLEWARE ORDER (IMPORTANT)
-            // -------------------------
+            // =====================================
+            // CORE MIDDLEWARE
+            // =====================================
+
             app.UseHttpsRedirection();
 
-            // ✅ THIS FIXES YOUR IMAGE ISSUE
             app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseAuthorization();
 
-            // -------------------------
-            // OPTIONAL: JSON GENERATOR
-            // -------------------------
-            var webRoot = app.Environment.WebRootPath;
-            AutoJsonGenerator.Generate(webRoot);
+            // =====================================
+            // AUTO JSON GENERATOR
+            // =====================================
 
-            // -------------------------
+            var imagesFolder = Path.Combine(
+                webRoot,
+                "Images"
+            );
+
+            if (Directory.Exists(imagesFolder))
+            {
+                AutoJsonGenerator.Generate(webRoot);
+            }
+            else
+            {
+                Console.WriteLine(
+                    $"Images folder not found: {imagesFolder}"
+                );
+            }
+
+            // =====================================
             // DATABASE SEEDING
-            // -------------------------
+            // =====================================
+
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                var context = services.GetRequiredService<ApplicationDbContext>();
+
+                var context = services.GetRequiredService
+                    <ApplicationDbContext>();
 
                 DbInitializer.Seed(context);
             }
 
-            // -------------------------
+            // =====================================
             // ROUTING
-            // -------------------------
-            app.UseSession();
+            // =====================================
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Products}/{action=Index}/{id?}"
             );
 
+            // =====================================
+            // RUN APPLICATION
+            // =====================================
+
             app.Run();
         }
     }
+
+
 }

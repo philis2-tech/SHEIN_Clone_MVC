@@ -1201,3 +1201,169 @@ button, input, select, textarea {
         animation-iteration-count: 1 !important;
     }
 }
+
+/* =====================================
+   MEGA MENU PRODUCT OVERLAP FIX
+===================================== */
+
+/* Right recommendations section */
+
+.mega-recommendations {
+    min-width: 0;
+    overflow: hidden;
+}
+
+    /* Display three products per row */
+
+    .mega-recommendations .mega-product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px 12px;
+        width: 100%;
+    }
+
+    /* Product cards */
+
+    .mega-recommendations .mega-product-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        text-align: center;
+        text-decoration: none;
+        gap: 8px;
+    }
+
+    /* Product images */
+
+    .mega-recommendations .mega-product-image {
+        width: 75px;
+        height: 75px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* Product names */
+
+    .mega-recommendations .mega-product-item > span:last-child {
+        display: block;
+        width: 100%;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+        font-size: 11px;
+        line-height: 1.4;
+        text-align: center;
+        min-height: 32px;
+    }
+/* ==========================================
+   MEGA MENU TEXT OVERLAP FIX
+========================================== */
+
+/* Allow text inside the mega menu to wrap */
+
+.fashion-mega-menu,
+.mega-menu-panel {
+    white-space: normal !important;
+}
+
+/* Recommendations layout */
+
+.mega-menu-recommendations {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-content: start;
+    gap: 22px 12px;
+    min-width: 0;
+}
+
+/* Individual recommendation items */
+
+.mega-recommendation-item,
+.mega-product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #222;
+    text-decoration: none;
+}
+
+    /* Product images */
+
+    .mega-recommendation-item img,
+    .mega-product-item img,
+    .mega-product-placeholder {
+        width: 65px;
+        height: 75px;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 5px;
+    }
+
+    /* Product names */
+
+    .mega-recommendation-item span,
+    .mega-product-item span {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        text-align: center;
+    }
+
+    /* Hover effects */
+
+    .mega-recommendation-item:hover,
+    .mega-product-item:hover {
+        color: #e9367b;
+    }
+
+/* Prevent sections from pushing into each other */
+
+.mega-products-section {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.mega-menu-recommendations {
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* Smaller screens */
+
+@media (max-width: 1050px) {
+
+    .mega-menu-recommendations {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px 8px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .mega-menu-recommendations {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mega-recommendation-item,
+    .mega-product-item {
+        font-size: 10px;
+    }
+}

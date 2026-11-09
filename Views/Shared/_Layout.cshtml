@@ -5,46 +5,62 @@
 }
 
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
     <title>@ViewData["Title"] - SHEIN Style</title>
 
+    <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet" />
 
+    <!-- BOOTSTRAP ICONS -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
+    <!-- SITE CSS -->
     <link rel="stylesheet"
           href="~/css/site.css"
           asp-append-version="true" />
 
+    <!-- RAZOR CSS -->
     <link rel="stylesheet"
           href="~/SHEIN_Clone_MVC.styles.css"
           asp-append-version="true" />
-    
 
 </head>
 
 <body>
 
-    
+    <!-- ============================= -->
+    <!-- HEADER -->
+    <!-- ============================= -->
+
     <header class="fashion-header">
 
         <!-- TOP HEADER -->
+
         <div class="fashion-topbar">
+
             <div class="fashion-topbar-inner">
+
+                <!-- LOGO -->
 
                 <a asp-controller="Home"
                    asp-action="Index"
                    class="fashion-logo">
+
                     SHEIN<span class="logo-divider">|</span><span class="logo-style">STYLE</span>
+
                 </a>
+
+
+                <!-- SEARCH BAR -->
 
                 <form asp-controller="Products"
                       asp-action="Index"
@@ -57,19 +73,33 @@
                            aria-label="Search products" />
 
                     <button type="submit" aria-label="Search">
+
                         <i class="bi bi-search"></i>
+
                     </button>
+
                 </form>
 
+
+                <!-- HEADER ACTIONS -->
+
                 <div class="fashion-actions">
+
+                    <!-- HOME -->
 
                     <a asp-controller="Home"
                        asp-action="Index"
                        class="header-action"
                        title="Home">
+
                         <i class="bi bi-house-door"></i>
+
                         <span>Home</span>
+
                     </a>
+
+
+                    <!-- SHOPPING BAG -->
 
                     <a asp-controller="Cart"
                        asp-action="Index"
@@ -77,27 +107,43 @@
                        title="Shopping Bag">
 
                         <span class="cart-icon-wrapper">
+
                             <i class="bi bi-bag"></i>
 
                             @if (cartCount > 0)
                             {
-                                <span class="cart-count">@cartCount</span>
+                                <span class="cart-count">
+                                    @cartCount
+                                </span>
                             }
+
                         </span>
 
                         <span>Bag</span>
+
                     </a>
 
                 </div>
+
             </div>
+
         </div>
 
-        <!-- CATEGORY NAVIGATION -->
-        <div class="fashion-category-bar">
-            <nav class="fashion-category-nav" aria-label="Product navigation">
 
-                
+        <!-- ============================= -->
+        <!-- CATEGORY NAVIGATION -->
+        <!-- ============================= -->
+
+        <div class="fashion-category-bar">
+
+            <nav class="fashion-category-nav"
+                 aria-label="Product navigation">
+
+
+                <!-- CATEGORIES MEGA MENU -->
+
                 <div class="mega-menu-container">
+
                     <button type="button"
                             class="category-nav-link mega-menu-trigger"
                             id="megaMenuTrigger"
@@ -105,519 +151,289 @@
                             aria-controls="categoryMegaMenu">
 
                         Categories
+
                         <i class="bi bi-chevron-down"></i>
+
                     </button>
 
                     @await Component.InvokeAsync("CategoryMegaMenu")
+
                 </div>
+
+
+                <!-- NEW IN -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    class="category-nav-link category-new">
+
                     NEW IN
+
                 </a>
+
+
+                <!-- WOMEN -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="1"
                    class="category-nav-link">
+
                     Women Clothing
+
                 </a>
+
+
+                <!-- MEN -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="2"
                    class="category-nav-link">
+
                     Men Clothing
+
                 </a>
+
+
+                <!-- KIDS -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="3"
                    class="category-nav-link">
+
                     Kids
+
                 </a>
+
+
+                <!-- SHOES -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="4"
                    class="category-nav-link">
+
                     Shoes
+
                 </a>
+
+
+                <!-- ACTIVEWEAR -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="7"
                    class="category-nav-link">
+
                     Activewear
+
                 </a>
+
+
+                <!-- JEWELLERY -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="8"
                    class="category-nav-link">
+
                     Jewellery &amp; Accessories
+
                 </a>
+
+
+                <!-- BAGS -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="9"
                    class="category-nav-link">
+
                     Bags
+
                 </a>
+
+
+                <!-- BEACHWEAR -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="5"
                    class="category-nav-link">
+
                     Beachwear
+
                 </a>
+
+
+                <!-- NIGHTWEAR -->
 
                 <a asp-controller="Products"
                    asp-action="Index"
                    asp-route-categoryId="6"
                    class="category-nav-link">
+
                     Nightwear
+
                 </a>
 
+
             </nav>
-            
 
         </div>
 
-                <!-- MEGA MENU TRIGGER -->
-                <div class="mega-menu-container">
-
-                    <button type="button"
-                            class="category-nav-link mega-menu-trigger"
-                            id="megaMenuTrigger"
-                            aria-expanded="false"
-                            aria-controls="fashionMegaMenu">
-
-                        Categories
-                        <i class="bi bi-chevron-down mega-chevron"></i>
-                    </button>
-
-                    <!-- MEGA MENU PANEL -->
-                    <div class="fashion-mega-menu"
-                         id="fashionMegaMenu"
-                         aria-label="Shop categories">
-
-                        <!-- LEFT CATEGORY SIDEBAR -->
-                        <aside class="mega-sidebar">
-
-                            <h6 class="mega-sidebar-heading">
-                                SHOP BY CATEGORY
-                            </h6>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               class="mega-category-link active">
-                                Just for You
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               class="mega-category-link">
-                                New In
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               class="mega-category-link">
-                                Sale
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="1"
-                               class="mega-category-link">
-                                Women Clothing
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="5"
-                               class="mega-category-link">
-                                Beachwear
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="3"
-                               class="mega-category-link">
-                                Kids
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="6"
-                               class="mega-category-link">
-                                Nightwear
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="2"
-                               class="mega-category-link">
-                                Men Clothing
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="4"
-                               class="mega-category-link">
-                                Shoes
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="7"
-                               class="mega-category-link">
-                                Activewear
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="8"
-                               class="mega-category-link">
-                                Jewellery & Accessories
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                            <a asp-controller="Products"
-                               asp-action="Index"
-                               asp-route-categoryId="9"
-                               class="mega-category-link">
-                                Bags
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-
-                        </aside>
-
-                        <!-- MIDDLE PRODUCT SECTION -->
-                        <section class="mega-products-section">
-
-                            <div class="mega-section-heading">
-                                <h6>
-                                    <i class="bi bi-grid-fill"></i>
-                                    PICKS FOR YOU
-                                </h6>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index">
-                                    View all
-                                    <i class="bi bi-arrow-right"></i>
-                                </a>
-                            </div>
-
-                            <div class="mega-product-grid">
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-stars"></i>
-                                    </span>
-
-                                    <span>Trending Styles</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="1"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-person-standing-dress"></i>
-                                    </span>
-
-                                    <span>Women's Fashion</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="3"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-balloon-heart"></i>
-                                    </span>
-
-                                    <span>Kids' Fashion</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="4"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-handbag"></i>
-                                    </span>
-
-                                    <span>New Shoes</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="7"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-lightning-charge"></i>
-                                    </span>
-
-                                    <span>Activewear</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="8"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-gem"></i>
-                                    </span>
-
-                                    <span>Accessories</span>
-                                </a>
-
-                            </div>
-                        </section>
-
-                        <!-- RIGHT RECOMMENDATIONS -->
-                        <section class="mega-products-section mega-recommendations">
-
-                            <div class="mega-section-heading">
-                                <h6>
-                                    <i class="bi bi-heart-fill"></i>
-                                    YOU MAY ALSO LIKE
-                                </h6>
-                            </div>
-
-                            <div class="mega-product-grid">
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="2"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-person"></i>
-                                    </span>
-
-                                    <span>Men's Fashion</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="5"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-sun"></i>
-                                    </span>
-
-                                    <span>Beachwear</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="6"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-moon-stars"></i>
-                                    </span>
-
-                                    <span>Nightwear</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   asp-route-categoryId="9"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-bag-heart"></i>
-                                    </span>
-
-                                    <span>Bags</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-fire"></i>
-                                    </span>
-
-                                    <span>Trending Now</span>
-                                </a>
-
-                                <a asp-controller="Products"
-                                   asp-action="Index"
-                                   class="mega-product-item">
-
-                                    <span class="mega-product-image">
-                                        <i class="bi bi-gift"></i>
-                                    </span>
-
-                                    <span>Explore All</span>
-                                </a>
-
-                            </div>
-                        </section>
-
-                    </div>
-                </div>
-
-                <!-- OTHER NAVIGATION LINKS -->
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   class="category-nav-link category-new">
-                    NEW IN
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="1"
-                   class="category-nav-link">
-                    Women Clothing
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="2"
-                   class="category-nav-link">
-                    Men Clothing
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="3"
-                   class="category-nav-link">
-                    Kids
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="4"
-                   class="category-nav-link">
-                    Shoes
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="7"
-                   class="category-nav-link">
-                    Activewear
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="8"
-                   class="category-nav-link">
-                    Jewellery & Accessories
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="9"
-                   class="category-nav-link">
-                    Bags
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="5"
-                   class="category-nav-link">
-                    Beachwear
-                </a>
-
-                <a asp-controller="Products"
-                   asp-action="Index"
-                   asp-route-categoryId="6"
-                   class="category-nav-link">
-                    Nightwear
-                </a>
-
-            </nav>
-        </div>
     </header>
 
-    <!-- PAGE CONTENT -->
+
+    <!-- ============================= -->
+    <!-- MAIN PAGE CONTENT -->
+    <!-- ============================= -->
+
     <main role="main">
+
         @RenderBody()
+
     </main>
 
+
+    <!-- ============================= -->
     <!-- FOOTER -->
+    <!-- ============================= -->
+
     <footer class="fashion-footer">
+
         <div class="container">
 
+
+            <!-- FOOTER BRAND -->
+
             <div class="footer-brand">
+
                 SHEIN<span>|</span>STYLE
+
             </div>
 
-            <p>Discover your style. Wear your confidence.</p>
+
+            <p>
+                Discover your style. Wear your confidence.
+            </p>
+
+
+            <!-- FOOTER LINKS -->
 
             <div class="footer-links">
 
-                <a asp-controller="Home" asp-action="Index">Home</a>
+                <a asp-controller="Home"
+                   asp-action="Index">
 
-                <a asp-controller="Products" asp-action="Index">Shop</a>
+                    Home
 
-                <a asp-controller="Cart" asp-action="Index">Shopping Bag</a>
+                </a>
 
-                <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                <a asp-controller="Products"
+                   asp-action="Index">
+
+                    Shop
+
+                </a>
+
+
+                <a asp-controller="Cart"
+                   asp-action="Index">
+
+                    Shopping Bag
+
+                </a>
+
+
+                <a asp-controller="Home"
+                   asp-action="Privacy">
+
+                    Privacy
+
+                </a>
 
             </div>
 
+
             <hr />
 
+
+            <!-- COPYRIGHT -->
+
             <small>
+
                 &copy; @DateTime.Now.Year SHEIN Style Clone.
+
                 Built as a fashion e-commerce project.
+
             </small>
+
+
         </div>
+
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+    <!-- BOOTSTRAP JAVASCRIPT -->
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- JQUERY -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js">
+    </script>
+
+
+    <!-- SITE JAVASCRIPT -->
+
+    <script src="~/js/site.js"
+            asp-append-version="true">
+    </script>
+
+
+    <!-- MEGA MENU JAVASCRIPT -->
 
     <script>
+
         document.addEventListener("DOMContentLoaded", function () {
 
             const menuContainer = document.querySelector(".mega-menu-container");
+
             const trigger = document.getElementById("megaMenuTrigger");
 
+
+            // Check whether the menu exists
+
             if (!menuContainer || !trigger) {
+
                 return;
+
             }
 
-            trigger.addEventListener("click", function () {
+
+            // OPEN AND CLOSE MENU
+
+            trigger.addEventListener("click", function (event) {
+
+                event.stopPropagation();
 
                 const isOpen = menuContainer.classList.toggle("is-open");
 
                 trigger.setAttribute("aria-expanded", isOpen.toString());
 
             });
+
+
+            // CLOSE MENU WHEN CLICKING OUTSIDE
 
             document.addEventListener("click", function (event) {
 
@@ -630,6 +446,9 @@
                 }
 
             });
+
+
+            // CLOSE MENU USING ESCAPE KEY
 
             document.addEventListener("keydown", function (event) {
 
@@ -646,10 +465,13 @@
             });
 
         });
+
     </script>
 
+
     @await RenderSectionAsync("Scripts", required: false)
-    
+
 
 </body>
+
 </html>
