@@ -1,31 +1,1369 @@
-html {
-  font-size: 14px;
+/* 1. GLOBAL SETTINGS  */
+
+:root {
+    --fashion-black: #111111;
+    --fashion-black-light: #1a1a1a;
+    --fashion-black-hover: #292929;
+    --fashion-pink: #ff4f93;
+    --fashion-pink-dark: #e9367b;
+    --fashion-pink-light: #fff0f6;
+    --fashion-pink-border: #ffd5e6;
+    --fashion-white: #ffffff;
+    --fashion-grey: #e8e8e8;
+    --fashion-text: #222222;
+    --fashion-muted: #777777;
+    --mega-border: #eeeeee;
+    --mega-background: #ffffff;
+    --header-height: 88px;
+    --nav-height: 49px;
 }
 
-@media (min-width: 768px) {
-  html {
+html {
+    position: relative;
+    min-height: 100%;
     font-size: 16px;
-  }
+    scroll-behavior: smooth;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+* {
+    box-sizing: border-box;
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--fashion-white);
+    color: var(--fashion-text);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+img {
+    max-width: 100%;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+main {
+    min-height: 65vh;
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+}
+/*  2. GENERAL BUTTONS */
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.15rem rgba(255, 79, 147, 0.25);
+}
+
+.btn-pink {
+    background-color: var(--fashion-pink);
+    border-color: var(--fashion-pink);
+    color: var(--fashion-white);
+}
+
+    .btn-pink:hover {
+        background-color: var(--fashion-pink-dark);
+        border-color: var(--fashion-pink-dark);
+        color: var(--fashion-white);
+    }
+/*  3. MAIN FASHION HEADER  */
+
+.fashion-header {
+    position: relative;
+    z-index: 1100;
+    width: 100%;
+    background: var(--fashion-black);
+    color: var(--fashion-white);
+}
+
+.fashion-topbar {
+    width: 100%;
+    background: var(--fashion-black);
+}
+
+.fashion-topbar-inner {
+    min-height: var(--header-height);
+    width: 100%;
+    padding: 15px 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+/* 4. LOGO */
+
+.fashion-logo {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--fashion-white);
+    font-size: 31px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+    .fashion-logo:hover, .fashion-logo:focus {
+        color: var(--fashion-white);
+    }
+
+.logo-divider {
+    margin: 0 7px;
+    color: var(--fashion-pink);
+    font-weight: 400;
+}
+
+.logo-style {
+    color: var(--fashion-pink);
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+/* 5. SEARCH BAR  */
+
+.fashion-search {
+    flex: 1;
+    width: 100%;
+    max-width: 650px;
+    height: 45px;
+    min-width: 0;
+    display: flex;
+    align-items: stretch;
+    background: var(--fashion-white);
+    border: 2px solid var(--fashion-white);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+    .fashion-search:focus-within {
+        border-color: var(--fashion-pink);
+    }
+
+    .fashion-search input {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+        padding: 0 16px;
+        border: none;
+        outline: none;
+        background: var(--fashion-white);
+        color: var(--fashion-text);
+        font-size: 14px;
+    }
+
+        .fashion-search input::placeholder {
+            color: #888888;
+        }
+
+    .fashion-search button {
+        width: 55px;
+        flex-shrink: 0;
+        border: none;
+        background: var(--fashion-pink);
+        color: var(--fashion-white);
+        font-size: 21px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+        .fashion-search button:hover {
+            background: var(--fashion-pink-dark);
+        }
+/* 6. HEADER ACTIONS*/
+
+.fashion-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-shrink: 0;
+}
+
+.header-action {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 43px;
+    gap: 4px;
+    color: var(--fashion-white);
+    text-decoration: none;
+    font-size: 11px;
+}
+
+    .header-action i {
+        font-size: 25px;
+        line-height: 1;
+    }
+
+    .header-action:hover {
+        color: var(--fashion-pink);
+    }
+
+.cart-icon-wrapper {
+    position: relative;
+    display: inline-flex;
+}
+
+.cart-count {
+    position: absolute;
+    top: -9px;
+    right: -11px;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--fashion-pink);
+    color: var(--fashion-white);
+    font-size: 11px;
+    font-weight: bold;
+}
+/* 7. CATEGORY NAVIGATION BAR */
+
+.fashion-category-bar {
+    position: relative;
+    z-index: 1101;
+    width: 100%;
+    background: var(--fashion-black);
+    border-top: 1px solid #303030;
+    border-bottom: 1px solid #333333;
+}
+/* Keep the navigation on one horizontal line. The dropdown is positioned separately so the menu can extend below the navigation. */
+
+.fashion-category-nav {
+    position: relative;
+    min-height: var(--nav-height);
+    width: 100%;
+    padding: 0 3%;
+    display: flex;
+    align-items: stretch;
+    gap: 25px;
+    white-space: nowrap; /* Do not put overflow:hidden here. It can clip the dropdown. */
+    overflow: visible;
+}
+
+.category-nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    color: var(--fashion-white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+    .category-nav-link:hover, .category-nav-link:focus {
+        color: var(--fashion-pink);
+    }
+
+    .category-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background: var(--fashion-pink);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s ease;
+    }
+
+    .category-nav-link:hover::after, .category-nav-link:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+.category-new {
+    color: var(--fashion-pink);
+    font-weight: 800;
+}
+/*  8. MEGA MENU CONTAINER  */ /* Supports either of these container classes: .mega-menu-container .category-mega-container Use the class that matches your _Layout.cshtml. */
+
+.mega-menu-container, .category-mega-container {
+    position: static;
+    display: flex;
+    align-items: stretch;
+    flex-shrink: 0;
+}
+/* Dropdown trigger */
+
+.mega-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--fashion-white);
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+    .mega-menu-trigger:hover, .mega-menu-trigger:focus-visible {
+        color: var(--fashion-pink);
+    }
+
+    .mega-menu-trigger i, .mega-chevron {
+        font-size: 11px;
+        transition: transform 0.2s ease;
+    }
+
+.mega-menu-container:hover .mega-chevron, .mega-menu-container.is-open .mega-chevron, .category-mega-container:hover .mega-chevron, .category-mega-container.is-open .mega-chevron {
+    transform: rotate(180deg);
+}
+
+.mega-menu-trigger[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+/*  9. MEGA MENU PANEL  */ /* Both .fashion-mega-menu and .mega-menu-panel are supported. IMPORTANT: The panel must be inside .fashion-category-bar or another appropriately positioned navigation container. */
+
+.fashion-mega-menu, .mega-menu-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    width: 100%;
+    max-height: min(620px, 78vh);
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--mega-background);
+    color: var(--fashion-text);
+    border-top: 3px solid var(--fashion-pink);
+    border-bottom: 1px solid var(--mega-border);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+/* Three-column desktop layout for the first implementation. */
+
+.fashion-mega-menu {
+    display: grid;
+    grid-template-columns: 235px minmax(0, 1fr) minmax(0, 1fr);
+}
+/* Three-column desktop layout for the second implementation. */
+
+.mega-menu-panel {
+    display: grid;
+    grid-template-columns: minmax(190px, 0.85fr) minmax(0, 2fr) minmax(0, 1.3fr);
+    gap: 22px;
+    padding: 24px;
+}
+/* Open the dropdown when hovered, focused or clicked. */
+
+@media (min-width: 769px) {
+    .mega-menu-container:hover .fashion-mega-menu, .mega-menu-container:focus-within .fashion-mega-menu, .mega-menu-container.is-open .fashion-mega-menu, .category-mega-container:hover .fashion-mega-menu, .category-mega-container:focus-within .fashion-mega-menu, .category-mega-container.is-open .fashion-mega-menu, .mega-menu-container:hover .mega-menu-panel, .mega-menu-container:focus-within .mega-menu-panel, .mega-menu-container.is-open .mega-menu-panel, .category-mega-container:hover .mega-menu-panel, .category-mega-container:focus-within .mega-menu-panel, .category-mega-container.is-open .mega-menu-panel, .fashion-mega-menu.is-open, .mega-menu-panel.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+}
+/* JavaScript can also toggle these classes. */
+
+.fashion-mega-menu.is-open, .mega-menu-panel.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+/*  10. MEGA MENU CATEGORY SIDEBAR*/
+
+.mega-sidebar, .mega-menu-categories {
+    min-width: 0;
+    padding: 18px 10px;
+    background: #fafafa;
+    border-right: 1px solid var(--mega-border);
+}
+
+.mega-sidebar-heading {
+    margin: 0;
+    padding: 0 10px 15px;
+    color: var(--fashion-pink-dark);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.mega-menu-categories h6 {
+    margin: 0 0 16px;
+    color: var(--fashion-pink-dark);
+    font-size: 12px;
+    font-weight: 800;
+}
+/* Category links */
+
+.mega-category-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 38px;
+    padding: 9px 10px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.4;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+    .mega-category-link i {
+        flex-shrink: 0;
+        color: #aaaaaa;
+        font-size: 11px;
+    }
+
+    .mega-category-link:hover, .mega-category-link:focus-visible, .mega-category-link.active {
+        background: #ffe3ef;
+        color: var(--fashion-pink-dark);
+    }
+
+        .mega-category-link:hover i {
+            color: var(--fashion-pink-dark);
+        }
+
+    .mega-category-link.view-all-link {
+        margin-top: 12px;
+        color: var(--fashion-pink-dark);
+        font-weight: 700;
+    }
+/* 11. MEGA MENU PRODUCT SECTIONS */
+
+.mega-products-section, .mega-menu-products {
+    min-width: 0;
+    padding: 20px 18px;
+}
+
+.mega-menu-products {
+    padding: 0;
+}
+
+.mega-recommendations {
+    min-width: 0;
+    padding: 20px 18px;
+    border-left: 1px solid var(--mega-border);
+}
+
+.mega-menu-heading, .mega-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+    .mega-menu-heading h6, .mega-section-heading h6 {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin: 0;
+        color: #222222;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+        .mega-menu-heading h6, .mega-section-heading h6 i {
+            color: var(--fashion-pink-dark);
+        }
+
+        .mega-section-heading h6 i {
+            color: var(--fashion-pink);
+        }
+
+    .mega-menu-heading a, .mega-section-heading > a {
+        flex-shrink: 0;
+        color: var(--fashion-pink-dark);
+        text-decoration: none;
+        font-size: 11px;
+    }
+
+        .mega-menu-heading a:hover, .mega-section-heading > a:hover {
+            text-decoration: underline;
+        }
+/* 12. MEGA MENU PRODUCT GRID  */
+
+.mega-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 12px;
+}
+/* Alternate implementation can use four columns. */
+
+.mega-menu-panel .mega-product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.mega-product-item, .mega-recommendation-item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    color: #292129;
+    text-decoration: none;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.35;
+    transition: color 0.2s ease;
+}
+
+    .mega-product-item:hover, .mega-product-item:focus-visible, .mega-recommendation-item:hover, .mega-recommendation-item:focus-visible {
+        color: var(--fashion-pink-dark);
+    }
+    /* Actual product images */
+
+    .mega-product-item img, .mega-recommendation-item img {
+        display: block;
+        width: 76px;
+        height: 86px;
+        flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        background: var(--fashion-pink-light);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .mega-product-item:hover img, .mega-recommendation-item:hover img {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 79, 147, 0.2);
+    }
+/* Fallback placeholders */
+
+.mega-product-image, .mega-product-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 86px;
+    flex-shrink: 0;
+    border: 1px solid var(--fashion-pink-border);
+    border-radius: 50%;
+    background: linear-gradient( 145deg, var(--fashion-pink-light), #ffe0ec );
+    color: var(--fashion-pink-dark);
+    font-size: 27px;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mega-product-item:hover .mega-product-image, .mega-product-item:hover .mega-product-placeholder {
+    transform: translateY(-3px);
+    background: #ffd5e6;
+    box-shadow: 0 5px 14px rgba(255, 79, 147, 0.18);
+}
+/* 13. RECOMMENDATIONS GRID */
+
+.mega-menu-recommendations {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-content: start;
+    gap: 18px 10px;
+    padding-left: 20px;
+    border-left: 1px solid #f0e5eb;
+}
+
+    .mega-menu-recommendations h6 {
+        grid-column: 1 / -1;
+        margin: 0;
+        color: #222222;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+.mega-recommendation-item img, .mega-recommendation-item .mega-product-placeholder {
+    width: 62px;
+    height: 72px;
+}
+/* 14. PRODUCTS PAGE BANNER */
+
+.products-banner {
+    position: relative;
+    width: calc(100% - 40px);
+    max-width: 1240px;
+    height: 300px;
+    margin: 20px auto 40px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+    .products-banner img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+.products-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.30);
+}
+
+.products-content {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--fashion-white);
+    z-index: 1;
+}
+
+    .products-content h1 {
+        margin: 0;
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 1.15;
+    }
+
+    .products-content p {
+        margin-top: 10px;
+        font-size: 19px;
+    }
+
+.products-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+/* 15. FASHION CATEGORY CIRCLES  */
+
+.fashion-category-section {
+    width: 100%;
+    max-width: 1240px;
+    margin: 35px auto 55px;
+    padding: 0 15px;
+}
+
+.fashion-category-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 5px 18px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fashion-pink) #f5f5f5;
+}
+
+    .fashion-category-list::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .fashion-category-list::-webkit-scrollbar-thumb {
+        background: var(--fashion-pink);
+        border-radius: 5px;
+    }
+
+.fashion-category-item {
+    min-width: 110px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--fashion-text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.fashion-category-circle {
+    width: 105px;
+    height: 105px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: var(--fashion-pink-light);
+    font-size: 38px;
+    transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fashion-category-item:hover {
+    color: var(--fashion-pink-dark);
+}
+
+    .fashion-category-item:hover .fashion-category-circle {
+        background: #ffe0ed;
+        border-color: var(--fashion-pink);
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(255, 79, 147, 0.15);
+    }
+/*  16. FLASH SALE  */
+
+.flash-sale-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+    .flash-sale-heading h2 {
+        margin: 0;
+        font-weight: 800;
+    }
+
+    .flash-sale-heading span {
+        color: var(--fashion-pink-dark);
+    }
+/*  17. PRODUCT CARDS  */
+
+.product-card {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    .product-card img {
+        transition: transform 0.4s ease;
+    }
+
+    .product-card:hover img {
+        transform: scale(1.04);
+    }
+
+.product-image-link {
+    display: block;
+    overflow: hidden;
+}
+
+.sale-badge, .new-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 5;
+    font-size: 12px;
+}
+
+.new-badge {
+    top: 42px;
+}
+
+.product-cart-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--fashion-pink);
+    color: var(--fashion-white);
+    text-decoration: none;
+    font-size: 20px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+    .product-cart-btn:hover {
+        background: var(--fashion-pink-dark);
+        color: var(--fashion-white);
+        transform: scale(1.08);
+    }
+/*  18. FORM ELEMENTS */
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--fashion-pink);
+    box-shadow: 0 0 0 0.2rem rgba(255, 79, 147, 0.15);
+}
+/*  19. FOOTER  */
+
+.fashion-footer {
+    margin-top: 65px;
+    padding: 45px 0 25px;
+    background: var(--fashion-black);
+    color: #eeeeee;
+    text-align: center;
+}
+
+.footer-brand {
+    margin-bottom: 12px;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+    .footer-brand span {
+        padding: 0 5px;
+        color: var(--fashion-pink);
+    }
+
+.fashion-footer p {
+    color: #cccccc;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 25px 0;
+}
+
+    .footer-links a {
+        color: var(--fashion-white);
+        text-decoration: none;
+        font-size: 13px;
+    }
+
+        .footer-links a:hover {
+            color: var(--fashion-pink);
+        }
+
+.fashion-footer hr {
+    border-color: #555555;
+}
+
+.fashion-footer small {
+    color: #aaaaaa;
+    font-size: 12px;
+}
+/*  20. TABLET LAYOUT */
+
+@media (max-width: 1100px) and (min-width: 769px) {
+    .fashion-topbar-inner {
+        gap: 20px;
+        padding: 15px 2.5%;
+    }
+
+    .fashion-logo {
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+
+    .logo-style {
+        font-size: 14px;
+    }
+
+    .fashion-actions {
+        gap: 15px;
+    }
+
+    .fashion-category-nav {
+        gap: 20px;
+        padding: 0 2.5%;
+    }
+
+    .fashion-mega-menu {
+        grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .mega-menu-panel {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .mega-products-section {
+        padding: 16px 12px;
+    }
+
+    .mega-product-grid, .mega-menu-panel .mega-product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px 8px;
+    }
+
+    .mega-product-image, .mega-product-placeholder {
+        width: 56px;
+        height: 56px;
+        font-size: 23px;
+    }
+
+    .mega-menu-recommendations {
+        grid-column: 2;
+        padding-left: 0;
+        border-left: 0;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .products-banner {
+        width: calc(100% - 30px);
+    }
+
+    .products-content {
+        left: 30px;
+    }
+
+        .products-content h1 {
+            font-size: 42px;
+        }
+}
+/* ========================================================= 21. MOBILE AND SMALL TABLET ========================================================= */
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: auto;
+        --nav-height: 45px;
+    }
+
+    html {
+        font-size: 15px;
+    }
+
+    .fashion-topbar-inner {
+        gap: 15px;
+        padding: 15px 16px;
+    }
+
+    .fashion-logo {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    .logo-style {
+        font-size: 13px;
+    }
+
+    .fashion-actions {
+        gap: 15px;
+    }
+
+    .header-action i {
+        font-size: 22px;
+    }
+
+    .fashion-category-nav {
+        gap: 22px;
+        padding: 0 16px;
+    }
+
+    .category-nav-link, .mega-menu-trigger {
+        font-size: 12px;
+    }
+    /* Mobile dropdown: fixed to the viewport so it is not clipped by horizontally scrolling navigation. */
+
+    .fashion-mega-menu, .mega-menu-panel {
+        position: fixed;
+        top: 135px;
+        left: 8px;
+        right: 8px;
+        width: auto;
+        max-height: calc(100vh - 155px);
+        display: block;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border: 1px solid var(--fashion-pink-border);
+        border-top: 3px solid var(--fashion-pink);
+        border-radius: 0 0 10px 10px;
+        transform: translateY(8px);
+    }
+
+    .mega-menu-panel {
+        padding: 18px;
+    }
+        /* Mobile menus open through a click-triggered .is-open class or when the trigger receives keyboard focus. */
+
+        .mega-menu-container.is-open .fashion-mega-menu, .mega-menu-container:focus-within .fashion-mega-menu, .category-mega-container.is-open .fashion-mega-menu, .category-mega-container:focus-within .fashion-mega-menu, .mega-menu-container.is-open .mega-menu-panel, .mega-menu-container:focus-within .mega-menu-panel, .category-mega-container.is-open .mega-menu-panel, .category-mega-container:focus-within .mega-menu-panel, .fashion-mega-menu.is-open, .mega-menu-panel.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+    .mega-sidebar, .mega-menu-categories {
+        padding: 16px 12px;
+        border-right: 0;
+        border-bottom: 1px solid var(--mega-border);
+    }
+
+    .mega-sidebar-heading {
+        padding-bottom: 10px;
+    }
+
+    .mega-category-link {
+        min-height: 40px;
+        font-size: 12px;
+    }
+
+    .mega-products-section {
+        padding: 18px 14px;
+    }
+
+    .mega-menu-products {
+        padding: 0;
+    }
+
+    .mega-recommendations {
+        padding: 18px 14px;
+        border-left: 0;
+        border-top: 1px solid var(--mega-border);
+    }
+
+    .mega-menu-heading, .mega-section-heading {
+        gap: 8px;
+    }
+
+    .mega-product-grid, .mega-menu-panel .mega-product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px 8px;
+    }
+
+    .mega-product-image, .mega-product-placeholder {
+        width: 58px;
+        height: 58px;
+        font-size: 23px;
+    }
+
+    .mega-product-item, .mega-recommendation-item {
+        font-size: 11px;
+    }
+
+    .mega-menu-recommendations {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .mega-recommendation-item img, .mega-recommendation-item .mega-product-placeholder {
+        width: 58px;
+        height: 65px;
+    }
+
+    .products-banner {
+        height: 260px;
+        margin: 15px auto 25px;
+    }
+
+    .products-content {
+        left: 20px;
+        right: 15px;
+    }
+
+        .products-content h1 {
+            font-size: 32px;
+        }
+
+        .products-content p {
+            font-size: 15px;
+        }
+
+    .products-buttons {
+        gap: 6px;
+        margin-top: 15px;
+    }
+
+    .fashion-category-list {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .fashion-category-item {
+        flex: 0 0 90px;
+        min-width: 90px;
+    }
+
+    .fashion-category-circle {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+    }
+
+    .fashion-footer {
+        margin-top: 40px;
+        padding: 35px 15px 20px;
+    }
+
+    .footer-links {
+        gap: 18px;
+    }
+}
+/*  22. SMALL MOBILE SCREENS  */
+
+@media (max-width: 600px) {
+    .fashion-topbar-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 15px;
+        padding: 16px;
+    }
+
+    .fashion-logo {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    .logo-style {
+        font-size: 11px;
+    }
+
+    .fashion-actions {
+        gap: 12px;
+    }
+
+    .header-action {
+        min-width: 32px;
+        font-size: 10px;
+    }
+
+        .header-action i {
+            font-size: 21px;
+        }
+
+    .fashion-search {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        max-width: none;
+        height: 42px;
+    }
+
+        .fashion-search button {
+            width: 48px;
+        }
+
+    .fashion-category-nav {
+        gap: 18px;
+        padding: 0 12px;
+    }
+
+    .fashion-mega-menu, .mega-menu-panel {
+        top: 145px;
+        left: 5px;
+        right: 5px;
+        max-height: calc(100vh - 160px);
+    }
+
+    .products-banner {
+        width: calc(100% - 20px);
+        height: 240px;
+    }
+
+    .products-content {
+        left: 18px;
+        right: 12px;
+    }
+
+        .products-content h1 {
+            font-size: 28px;
+        }
+
+        .products-content p {
+            font-size: 14px;
+        }
+
+    .mega-product-grid, .mega-menu-panel .mega-product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mega-menu-recommendations {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fashion-footer {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+/*/ 23. ACCESSIBILITY  */
+
+.category-nav-link:focus-visible, .mega-menu-trigger:focus-visible, .mega-category-link:focus-visible, .mega-product-item:focus-visible, .mega-recommendation-item:focus-visible, .header-action:focus-visible {
+    outline: 2px solid var(--fashion-pink);
+    outline-offset: 3px;
+}
+/* Respect reduced-motion preferences. */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* =====================================
+   MEGA MENU PRODUCT OVERLAP FIX
+===================================== */
+
+/* Right recommendations section */
+
+.mega-recommendations {
+    min-width: 0;
+    overflow: hidden;
+}
+
+    /* Display three products per row */
+
+    .mega-recommendations .mega-product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px 12px;
+        width: 100%;
+    }
+
+    /* Product cards */
+
+    .mega-recommendations .mega-product-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        text-align: center;
+        text-decoration: none;
+        gap: 8px;
+    }
+
+    /* Product images */
+
+    .mega-recommendations .mega-product-image {
+        width: 75px;
+        height: 75px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* Product names */
+
+    .mega-recommendations .mega-product-item > span:last-child {
+        display: block;
+        width: 100%;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+        font-size: 11px;
+        line-height: 1.4;
+        text-align: center;
+        min-height: 32px;
+    }
+/* ==========================================
+   MEGA MENU TEXT OVERLAP FIX
+========================================== */
+
+/* Allow text inside the mega menu to wrap */
+
+.fashion-mega-menu,
+.mega-menu-panel {
+    white-space: normal !important;
+}
+
+/* Recommendations layout */
+
+.mega-menu-recommendations {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-content: start;
+    gap: 22px 12px;
+    min-width: 0;
+}
+
+/* Individual recommendation items */
+
+.mega-recommendation-item,
+.mega-product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #222;
+    text-decoration: none;
+}
+
+    /* Product images */
+
+    .mega-recommendation-item img,
+    .mega-product-item img,
+    .mega-product-placeholder {
+        width: 65px;
+        height: 75px;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 5px;
+    }
+
+    /* Product names */
+
+    .mega-recommendation-item span,
+    .mega-product-item span {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        text-align: center;
+    }
+
+    /* Hover effects */
+
+    .mega-recommendation-item:hover,
+    .mega-product-item:hover {
+        color: #e9367b;
+    }
+
+/* Prevent sections from pushing into each other */
+
+.mega-products-section {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.mega-menu-recommendations {
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* Smaller screens */
+
+@media (max-width: 1050px) {
+
+    .mega-menu-recommendations {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px 8px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .mega-menu-recommendations {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mega-recommendation-item,
+    .mega-product-item {
+        font-size: 10px;
+    }
 }

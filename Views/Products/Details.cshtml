@@ -487,30 +487,34 @@
                       method="post"
                       onsubmit="return validateSelection()">
 
+                    @Html.AntiForgeryToken()
+
+                    <!-- Product ID -->
                     <input type="hidden"
-                           name="id"
+                           name="productId"
                            value="@Model.Id" />
 
+                    <!-- Selected Size -->
                     <input type="hidden"
                            id="selectedSizeInput"
                            name="size"
                            value="" />
 
+                    <!-- Selected Colour -->
                     <input type="hidden"
                            id="selectedColourInput"
-                           name="colour"
+                           name="color"
                            value="" />
-
 
                     <button type="submit"
                             class="btn btn-dark btn-lg me-2">
 
-                        Add To Cart
+                        🛒 Add To Cart
 
                     </button>
 
-
-                    <a asp-action="Index"
+                    <a asp-controller="Products"
+                       asp-action="Index"
                        class="btn btn-outline-secondary btn-lg">
 
                         Back To Products

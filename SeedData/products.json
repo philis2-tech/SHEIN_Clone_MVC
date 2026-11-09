@@ -1,8 +1,27 @@
 [
   {
+    "Name": "Banner",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "banner.jpg",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
     "Name": "Apricot Yoga Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Activewear",
+    "ImageBasePath": "Images/Activewear",
     "Variants": [
       {
         "Color": "Default",
@@ -29,7 +48,7 @@
   {
     "Name": "Black Gym Shorts",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Activewear",
+    "ImageBasePath": "Images/Activewear",
     "Variants": [
       {
         "Color": "Default",
@@ -56,7 +75,7 @@
   {
     "Name": "Black High Waist Leggings",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Activewear",
+    "ImageBasePath": "Images/Activewear",
     "Variants": [
       {
         "Color": "Default",
@@ -75,14 +94,6 @@
           {
             "File": "black-high-waist-leggings-side.png",
             "IsPrimary": false
-          },
-          {
-            "File": "black-high-waist-leggings-back.png",
-            "IsPrimary": false
-          },
-          {
-            "File": "black-high-waist-leggings-front.png",
-            "IsPrimary": true
           }
         ]
       }
@@ -91,7 +102,7 @@
   {
     "Name": "Black Yoga Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Activewear",
+    "ImageBasePath": "Images/Activewear",
     "Variants": [
       {
         "Color": "Default",
@@ -118,7 +129,7 @@
   {
     "Name": "Blue Gym Shorts",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Activewear",
+    "ImageBasePath": "Images/Activewear",
     "Variants": [
       {
         "Color": "Default",
@@ -145,7 +156,7 @@
   {
     "Name": "Brown High Waist Leggings",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Activewear",
+    "ImageBasePath": "Images/Activewear",
     "Variants": [
       {
         "Color": "Default",
@@ -164,14 +175,6 @@
           {
             "File": "brown-high-waist-leggings-side.png",
             "IsPrimary": false
-          },
-          {
-            "File": "brown-high-waist-leggings-back.png",
-            "IsPrimary": false
-          },
-          {
-            "File": "brown-high-waist-leggings-front.png",
-            "IsPrimary": true
           }
         ]
       }
@@ -180,7 +183,7 @@
   {
     "Name": "Pink Yoga Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Activewear",
+    "ImageBasePath": "Images/Activewear",
     "Variants": [
       {
         "Color": "Default",
@@ -207,7 +210,7 @@
   {
     "Name": "Electrical_Facial_Steamer",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Appliances",
+    "ImageBasePath": "Images/Appliances",
     "Variants": [
       {
         "Color": "Default",
@@ -234,7 +237,7 @@
   {
     "Name": "Facial_Jade_Roller",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Appliances",
+    "ImageBasePath": "Images/Appliances",
     "Variants": [
       {
         "Color": "Default",
@@ -253,10 +256,25 @@
           {
             "File": "facial_jade_roller-side.png",
             "IsPrimary": false
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Facial_Jade_Roller Side1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Appliances",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "facial_jade_roller-side1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -265,7 +283,7 @@
   {
     "Name": "Mini_Garment_Steamer",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Appliances",
+    "ImageBasePath": "Images/Appliances",
     "Variants": [
       {
         "Color": "Default",
@@ -292,7 +310,7 @@
   {
     "Name": "Mini_Hair_Straightener",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Appliances",
+    "ImageBasePath": "Images/Appliances",
     "Variants": [
       {
         "Color": "Default",
@@ -319,7 +337,7 @@
   {
     "Name": "Portable_Blender_Bottle",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Appliances",
+    "ImageBasePath": "Images/Appliances",
     "Variants": [
       {
         "Color": "Default",
@@ -346,7 +364,7 @@
   {
     "Name": "Portable_Humidifier",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Appliances",
+    "ImageBasePath": "Images/Appliances",
     "Variants": [
       {
         "Color": "Default",
@@ -373,7 +391,7 @@
   {
     "Name": "Black Handbag",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -388,10 +406,25 @@
           {
             "File": "black-handbag-front.png",
             "IsPrimary": true
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Black Handbag Side2",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "black-handbag-side2.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -400,7 +433,7 @@
   {
     "Name": "Black_3_Piece_Luggage_Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -423,7 +456,7 @@
   {
     "Name": "Black_Leather_Briefcase",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -438,10 +471,25 @@
           {
             "File": "black_leather_briefcase-front.png",
             "IsPrimary": true
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Black_Leather_Briefcase Side2",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "black_leather_briefcase-side2.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -450,7 +498,7 @@
   {
     "Name": "Black_Mini_Crossbody_Bag",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -477,7 +525,7 @@
   {
     "Name": "Blue_3_Piece_Luggage_Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -500,7 +548,7 @@
   {
     "Name": "Brown Leather Briefcase",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -519,7 +567,7 @@
   {
     "Name": "Brown Men_Leather_Briefcase",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -538,7 +586,7 @@
   {
     "Name": "Brown_Leather_Briefcase",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -557,7 +605,7 @@
   {
     "Name": "Brown_Mini_Crossbody_Bag",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -584,7 +632,7 @@
   {
     "Name": "Canvas Tote Bag",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -611,7 +659,7 @@
   {
     "Name": "Pink_3_Piece_Luggage_Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -630,7 +678,7 @@
   {
     "Name": "Red Handbag",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -657,7 +705,7 @@
   {
     "Name": "White Handbag",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Bags \u0026 Luggages",
+    "ImageBasePath": "Images/Bags \u0026 Luggages",
     "Variants": [
       {
         "Color": "Default",
@@ -684,7 +732,7 @@
   {
     "Name": "Blue Trunk",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Beachwear",
+    "ImageBasePath": "Images/Beachwear",
     "Variants": [
       {
         "Color": "Default",
@@ -711,7 +759,7 @@
   {
     "Name": "Green Trunk",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Beachwear",
+    "ImageBasePath": "Images/Beachwear",
     "Variants": [
       {
         "Color": "Default",
@@ -738,7 +786,7 @@
   {
     "Name": "Grey Trunk",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Beachwear",
+    "ImageBasePath": "Images/Beachwear",
     "Variants": [
       {
         "Color": "Default",
@@ -765,7 +813,7 @@
   {
     "Name": "Pink Tropical Bikin Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Beachwear",
+    "ImageBasePath": "Images/Beachwear",
     "Variants": [
       {
         "Color": "Default",
@@ -792,7 +840,7 @@
   {
     "Name": "Tropical Bikin Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Beachwear",
+    "ImageBasePath": "Images/Beachwear",
     "Variants": [
       {
         "Color": "Default",
@@ -807,19 +855,34 @@
           {
             "File": "tropical-bikin-set-front.png",
             "IsPrimary": true
-          },
-          {
-            "File": "tropical-bikin-set-side1.png",
-            "IsPrimary": false
           }
         ]
       }
     ]
   },
   {
-    "Name": "1Pc Oval Frame Women S Fashion Glasses",
+    "Name": "Tropical Bikin Set Side1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Beachwear",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "tropical-bikin-set-side1.png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "1Pc Oval Frame Women S Fashion Glasses 1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -829,20 +892,35 @@
         "Images": [
           {
             "File": "1pc-Oval-Frame-Women-s-Fashion-Glasses-1.png",
-            "IsPrimary": false
-          },
-          {
-            "File": "1pc-Oval-Frame-Women-s-Fashion-Glasses-2.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "1Pc Oval Frame Women S Fashion",
+    "Name": "1Pc Oval Frame Women S Fashion Glasses 2",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "1pc-Oval-Frame-Women-s-Fashion-Glasses-2.png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "1Pc Oval Frame Women S Fashion Glasses",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -852,16 +930,16 @@
         "Images": [
           {
             "File": "1pc-Oval-Frame-Women-s-Fashion-Glasses.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "3Pcs Set Elegant Retro Bangle Bracelets",
+    "Name": "3Pcs Set Elegant Retro Bangle Bracelets 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -871,20 +949,35 @@
         "Images": [
           {
             "File": "3pcs-Set-Elegant-Retro-Bangle-Bracelets-1.png",
-            "IsPrimary": false
-          },
-          {
-            "File": "3pcs-Set-Elegant-Retro-Bangle-Bracelets-2.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "3Pcs Set Elegant Retro Bangle",
+    "Name": "3Pcs Set Elegant Retro Bangle Bracelets 2",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "3pcs-Set-Elegant-Retro-Bangle-Bracelets-2.png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "3Pcs Set Elegant Retro Bangle Bracelets",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -894,16 +987,16 @@
         "Images": [
           {
             "File": "3pcs-Set-Elegant-Retro-Bangle-Bracelets.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "Adjustable Bangle Ring Jewelry Set",
+    "Name": "Adjustable Bangle Ring Jewelry Set 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -913,7 +1006,7 @@
         "Images": [
           {
             "File": "Adjustable-Bangle-Ring-Jewelry-Set-1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -922,7 +1015,7 @@
   {
     "Name": "Black Bucket Hat",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -945,7 +1038,7 @@
   {
     "Name": "Black Silk Scarf",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -968,7 +1061,7 @@
   {
     "Name": "Brown Bucket Hat",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -991,7 +1084,7 @@
   {
     "Name": "Brown Silk Scarf",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -1014,7 +1107,7 @@
   {
     "Name": "Crystal_Stud_Earings",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -1037,7 +1130,7 @@
   {
     "Name": "Gold Hoop Earrings",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -1064,7 +1157,7 @@
   {
     "Name": "Grey Bucket Hat",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -1087,7 +1180,7 @@
   {
     "Name": "Leather Bracelet",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -1112,9 +1205,9 @@
     ]
   },
   {
-    "Name": "Multi Element Gold Earring Set Lightweight",
+    "Name": "Multi Element Gold Earring Set Lightweight 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -1124,16 +1217,16 @@
         "Images": [
           {
             "File": "Multi-Element-Gold-Earring-Set-Lightweight-1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "Multi Element Gold Earring Set",
+    "Name": "Multi Element Gold Earring Set Lightweight",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Jewellery\u0026Accessories",
+    "ImageBasePath": "Images/Jewellery\u0026Accessories",
     "Variants": [
       {
         "Color": "Default",
@@ -1143,7 +1236,7 @@
         "Images": [
           {
             "File": "Multi-Element-Gold-Earring-Set-Lightweight.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -1152,7 +1245,7 @@
   {
     "Name": "2Pcs Long Sleeve Summer Dresses",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1163,25 +1256,10 @@
           {
             "File": "2pcs-Long-Sleeve-Summer-Dresses-back.png",
             "IsPrimary": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "Name": "2Pcs Long Sleeve Summer",
-    "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
-    "Variants": [
-      {
-        "Color": "Default",
-        "Size": "M",
-        "Price": 0,
-        "Stock": 0,
-        "Images": [
+          },
           {
             "File": "2pcs-Long-Sleeve-Summer-Dresses.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -1190,7 +1268,7 @@
   {
     "Name": "3 Pc Fashion Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1215,9 +1293,9 @@
     ]
   },
   {
-    "Name": "3Pcs Set Girls Floral",
+    "Name": "3Pcs Set Girls Floral 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1227,20 +1305,80 @@
         "Images": [
           {
             "File": "3pcs-Set-Girls-Floral-1.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "3Pcs Set Girls Floral 2",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "3pcs-Set-Girls-Floral-2.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "3Pcs Set Girls Floral 3",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "3pcs-Set-Girls-Floral-3.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "3Pcs Set Girls Floral 4",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "3pcs-Set-Girls-Floral-4.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "3Pcs Set Girls Floral",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "3pcs-Set-Girls-Floral-back.png",
             "IsPrimary": false
@@ -1254,9 +1392,9 @@
     ]
   },
   {
-    "Name": "Apricot 2 Pcs",
+    "Name": "Apricot 2 Pcs 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1266,12 +1404,42 @@
         "Images": [
           {
             "File": "Apricot-2-pcs-1.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Apricot 2 Pcs 3",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Apricot-2-pcs-3.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Apricot 2 Pcs",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Apricot-2-pcs-back.png",
             "IsPrimary": false
@@ -1285,9 +1453,9 @@
     ]
   },
   {
-    "Name": "Boys Black And White Casual 2Pc",
+    "Name": "Boys Black And White Casual 2Pc Back ",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1297,24 +1465,54 @@
         "Images": [
           {
             "File": "Boys-black-and-white-casual-2pc-back .png",
-            "IsPrimary": false
-          },
-          {
-            "File": "Boys-black-and-white-casual-2pc-front .png",
-            "IsPrimary": false
-          },
-          {
-            "File": "Boys-black-and-white-casual-2pc-side .png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "Boys Blue 2 Pc Set",
+    "Name": "Boys Black And White Casual 2Pc Front ",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "Boys-black-and-white-casual-2pc-front .png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Boys Black And White Casual 2Pc Side ",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "Boys-black-and-white-casual-2pc-side .png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Boys Blue 2 Pc Set 1 ",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1324,12 +1522,42 @@
         "Images": [
           {
             "File": "Boys-blue-2-pc-set-1 .png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Boys Blue 2 Pc Set Back ",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Boys-blue-2-pc-set-back .png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Boys Blue 2 Pc Set",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Boys-blue-2-pc-set-front.png",
             "IsPrimary": true
@@ -1345,7 +1573,7 @@
   {
     "Name": "Casual Grey Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1372,7 +1600,7 @@
   {
     "Name": "Kiddies Blue Gown",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1399,7 +1627,7 @@
   {
     "Name": "Kids Elegant Summer Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1420,9 +1648,9 @@
     ]
   },
   {
-    "Name": "Polka Dot Print Dress",
+    "Name": "Polka Dot Print Dress 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1432,16 +1660,61 @@
         "Images": [
           {
             "File": "Polka-Dot-Print-Dress-1.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Polka Dot Print Dress 2",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Polka-Dot-Print-Dress-2.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Polka Dot Print Dress 3",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Polka-Dot-Print-Dress-3.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Polka Dot Print Dress",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Polka-Dot-Print-Dress-back.png",
             "IsPrimary": false
@@ -1455,9 +1728,9 @@
     ]
   },
   {
-    "Name": "Sleeveless Pleated Dress",
+    "Name": "Sleeveless Pleated Dress 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1467,18 +1740,44 @@
         "Images": [
           {
             "File": "Sleeveless-Pleated-Dress-1.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Sleeveless Pleated Dress 2",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Sleeveless-Pleated-Dress-2.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Sleeveless Pleated Dress",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Sleeveless-Pleated-Dress-back.png",
-            "IsPrimary": false
-          },
-          {
-            "File": "Sleeveless-Pleated-Dress-front .png",
             "IsPrimary": false
           }
         ]
@@ -1486,9 +1785,28 @@
     ]
   },
   {
-    "Name": "Solid Color Square Neck Dress",
+    "Name": "Sleeveless Pleated Dress Front ",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "Sleeveless-Pleated-Dress-front .png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Solid Color Square Neck Dress 1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1498,15 +1816,45 @@
         "Images": [
           {
             "File": "Solid-Color-Square-Neck-Dress-1.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Solid Color Square Neck Dress",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Solid-Color-Square-Neck-Dress-back.png",
             "IsPrimary": false
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Solid Color Square Neck Dress Front ",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Kids",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Solid-Color-Square-Neck-Dress-front .png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -1515,7 +1863,7 @@
   {
     "Name": "Spider Man Print 2 Pcs",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Kids",
+    "ImageBasePath": "Images/Kids",
     "Variants": [
       {
         "Color": "Default",
@@ -1538,7 +1886,7 @@
   {
     "Name": "Apricot Trench Coat",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1565,7 +1913,7 @@
   {
     "Name": "Beige Slim Fit Suit Pants",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1592,7 +1940,7 @@
   {
     "Name": "Black Chino Trousers",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1619,7 +1967,7 @@
   {
     "Name": "Black Denim Jeans",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1646,7 +1994,7 @@
   {
     "Name": "Black Graphic Tee",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1673,7 +2021,7 @@
   {
     "Name": "Black Trench Coat",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1700,7 +2048,7 @@
   {
     "Name": "Blue Denim Jeans",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1727,7 +2075,7 @@
   {
     "Name": "Blue Graphic Tee",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1754,7 +2102,7 @@
   {
     "Name": "Charcoal Slim Fit Suit Pants",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1781,7 +2129,7 @@
   {
     "Name": "Classic Black Leather Jacket",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1808,7 +2156,7 @@
   {
     "Name": "Dark Grey Tracksuit Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1823,10 +2171,25 @@
           {
             "File": "dark-grey-tracksuit-set-front.png",
             "IsPrimary": true
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Dark Grey Tracksuit Set Side1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Men",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "dark-grey-tracksuit-set-side1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -1835,7 +2198,7 @@
   {
     "Name": "Grey Chino Trousers",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1862,7 +2225,7 @@
   {
     "Name": "Grey Tracksuit Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1889,7 +2252,7 @@
   {
     "Name": "Khaki Chino Trousers",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1916,7 +2279,7 @@
   {
     "Name": "Men S Fashionable Printed Loose Fit",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1939,7 +2302,7 @@
   {
     "Name": "Men S Mature Casual Style Gray Collared Button Up Long Sleeve Overcoat",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1958,34 +2321,19 @@
           {
             "File": "Men-s-Mature-Casual-Style-Gray-Collared-Button-Up-Long-Sleeve-Overcoat-side.png",
             "IsPrimary": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "Name": "Men S Mature Casual Style Gray Collared Button Up Long Sleeve",
-    "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
-    "Variants": [
-      {
-        "Color": "Default",
-        "Size": "M",
-        "Price": 0,
-        "Stock": 0,
-        "Images": [
+          },
           {
             "File": "Men-s-Mature-Casual-Style-Gray-Collared-Button-Up-Long-Sleeve-Overcoat.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "Men S Solid Color Jacquard Knit Short Sleeve Shirt",
+    "Name": "Men S Solid Color Jacquard Knit Short Sleeve Shirt 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -1995,8 +2343,23 @@
         "Images": [
           {
             "File": "Men-s-Solid-Color-Jacquard-Knit-Short-Sleeve-Shirt-1.png",
-            "IsPrimary": false
-          },
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Men S Solid Color Jacquard Knit Short Sleeve Shirt",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Men",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "Men-s-Solid-Color-Jacquard-Knit-Short-Sleeve-Shirt-Back.png",
             "IsPrimary": false
@@ -2014,9 +2377,9 @@
     ]
   },
   {
-    "Name": "Men S Solid Color Regular Shoulder",
+    "Name": "Men S Solid Color Regular Shoulder 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -2026,24 +2389,16 @@
         "Images": [
           {
             "File": "Men-s-Solid-Color-Regular-Shoulder-1.png",
-            "IsPrimary": false
-          },
-          {
-            "File": "Men-s-Solid-Color-Regular-Shoulder-front.png",
             "IsPrimary": true
-          },
-          {
-            "File": "Men-s-Solid-Color-Regular-Shoulder-side.png",
-            "IsPrimary": false
           }
         ]
       }
     ]
   },
   {
-    "Name": "Men S Solid Color Regular",
+    "Name": "Men S Solid Color Regular Shoulder",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -2052,17 +2407,25 @@
         "Stock": 0,
         "Images": [
           {
-            "File": "Men-s-Solid-Color-Regular-Shoulder.png",
+            "File": "Men-s-Solid-Color-Regular-Shoulder-front.png",
+            "IsPrimary": true
+          },
+          {
+            "File": "Men-s-Solid-Color-Regular-Shoulder-side.png",
             "IsPrimary": false
+          },
+          {
+            "File": "Men-s-Solid-Color-Regular-Shoulder.png",
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "Men S Solid Color Stand Collar",
+    "Name": "Men S Solid Color Stand Collar 1",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -2072,16 +2435,16 @@
         "Images": [
           {
             "File": "Men-s-Solid-Color-Stand-Collar-1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
     ]
   },
   {
-    "Name": "Men S Solid Color Stand Collar Half",
+    "Name": "Men S Solid Color Stand Collar Half Zip",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -2091,7 +2454,7 @@
         "Images": [
           {
             "File": "Men-s-Solid-Color-Stand-Collar-Half-Zip.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -2100,7 +2463,7 @@
   {
     "Name": "Navy Slim Fit Suit Pants",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -2127,7 +2490,7 @@
   {
     "Name": "Red Graphic Tee",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Men",
+    "ImageBasePath": "Images/Men",
     "Variants": [
       {
         "Color": "Default",
@@ -2154,7 +2517,7 @@
   {
     "Name": "Black Pyjamaset",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Nightwear",
+    "ImageBasePath": "Images/Nightwear",
     "Variants": [
       {
         "Color": "Default",
@@ -2181,7 +2544,7 @@
   {
     "Name": "Grey Pyjamaset",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Nightwear",
+    "ImageBasePath": "Images/Nightwear",
     "Variants": [
       {
         "Color": "Default",
@@ -2208,7 +2571,7 @@
   {
     "Name": "Pink Satin Nightgown",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Nightwear",
+    "ImageBasePath": "Images/Nightwear",
     "Variants": [
       {
         "Color": "Default",
@@ -2235,7 +2598,7 @@
   {
     "Name": "White Pyjamaset",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Nightwear",
+    "ImageBasePath": "Images/Nightwear",
     "Variants": [
       {
         "Color": "Default",
@@ -2262,7 +2625,7 @@
   {
     "Name": "White Satin Nightgown",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Nightwear",
+    "ImageBasePath": "Images/Nightwear",
     "Variants": [
       {
         "Color": "Default",
@@ -2289,7 +2652,7 @@
   {
     "Name": "Black Sports Sneakers",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2316,7 +2679,7 @@
   {
     "Name": "Black Stiletto Heels",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2339,7 +2702,7 @@
   {
     "Name": "Black Stiletto Heels Sandals",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2358,7 +2721,7 @@
   {
     "Name": "Blue Block Heels Sandals",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2385,7 +2748,7 @@
   {
     "Name": "Brown Block Heels Sandals",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2412,7 +2775,7 @@
   {
     "Name": "Pink Stiletto Heels",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2439,7 +2802,7 @@
   {
     "Name": "White Block Heels Sandals",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2466,7 +2829,7 @@
   {
     "Name": "White Sneakers",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2493,7 +2856,7 @@
   {
     "Name": "White Sports Sneakers",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2520,7 +2883,7 @@
   {
     "Name": "White Stiletto Heels",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Shoes",
+    "ImageBasePath": "Images/Shoes",
     "Variants": [
       {
         "Color": "Default",
@@ -2547,7 +2910,7 @@
   {
     "Name": "Brick_Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Toys",
+    "ImageBasePath": "Images/Toys",
     "Variants": [
       {
         "Color": "Default",
@@ -2570,7 +2933,7 @@
   {
     "Name": "Dollhouse_Furniture_Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Toys",
+    "ImageBasePath": "Images/Toys",
     "Variants": [
       {
         "Color": "Default",
@@ -2593,7 +2956,7 @@
   {
     "Name": "Kids_Art_Kit",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Toys",
+    "ImageBasePath": "Images/Toys",
     "Variants": [
       {
         "Color": "Default",
@@ -2620,7 +2983,7 @@
   {
     "Name": "White_Plush_Teddy_Bear",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Toys",
+    "ImageBasePath": "Images/Toys",
     "Variants": [
       {
         "Color": "Default",
@@ -2639,10 +3002,25 @@
           {
             "File": "white_plush_teddy_bear-side.png",
             "IsPrimary": false
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "White_Plush_Teddy_Bear Side1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Toys",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "white_plush_teddy_bear-side1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -2651,7 +3029,7 @@
   {
     "Name": "Wooden_Buildings_Blocks",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Toys",
+    "ImageBasePath": "Images/Toys",
     "Variants": [
       {
         "Color": "Default",
@@ -2678,7 +3056,7 @@
   {
     "Name": "Apricot Wide Leg Pants",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2697,10 +3075,25 @@
           {
             "File": "apricot-wide-leg-pants-side.png",
             "IsPrimary": false
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Apricot Wide Leg Pants Side1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "apricot-wide-leg-pants-side1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -2709,7 +3102,7 @@
   {
     "Name": "Apricot_Plus_Size_Wrap_Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2736,7 +3129,7 @@
   {
     "Name": "Beige Formal Trousers",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2763,7 +3156,7 @@
   {
     "Name": "Beige_Sleeveless_Blazer Vest",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2786,7 +3179,7 @@
   {
     "Name": "Beige_Sleeveless_Blazer_Vest",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2805,7 +3198,7 @@
   {
     "Name": "Black Crop Top",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2828,7 +3221,7 @@
   {
     "Name": "Black Formal Trousers",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2855,7 +3248,7 @@
   {
     "Name": "Black Long Coat",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2882,7 +3275,7 @@
   {
     "Name": "Black Wide Leg Pants",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2901,10 +3294,25 @@
           {
             "File": "black-wide-leg-pants-side.png",
             "IsPrimary": false
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Black Wide Leg Pants Side1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "black-wide-leg-pants-side1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -2913,7 +3321,7 @@
   {
     "Name": "Black_Sleeveless_Blazer Vest",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2940,7 +3348,7 @@
   {
     "Name": "Blue_Plus_Size_Wrap_Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2967,7 +3375,7 @@
   {
     "Name": "Blue_Ruched Bodycon Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -2994,7 +3402,7 @@
   {
     "Name": "Brown Casual 2 Piece Skirt Set",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3021,7 +3429,7 @@
   {
     "Name": "Brown Sleeveless Summer Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3046,9 +3454,9 @@
     ]
   },
   {
-    "Name": "Brown",
+    "Name": "Brown Summer_Dress_Front",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3058,7 +3466,7 @@
         "Images": [
           {
             "File": "brown-summer_dress_front.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -3067,7 +3475,7 @@
   {
     "Name": "Brown Wide Leg Pants",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3086,10 +3494,25 @@
           {
             "File": "brown-wide-leg-pants-side.png",
             "IsPrimary": false
-          },
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Brown Wide Leg Pants Side1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
           {
             "File": "brown-wide-leg-pants-side1.png",
-            "IsPrimary": false
+            "IsPrimary": true
           }
         ]
       }
@@ -3098,7 +3521,7 @@
   {
     "Name": "Brown_Ruched Bodycon Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3125,7 +3548,7 @@
   {
     "Name": "Burgundy_Sleeveless_Blazer Vest",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3152,7 +3575,7 @@
   {
     "Name": "Floral Maxi Skirt",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3179,7 +3602,7 @@
   {
     "Name": "Floral Summer Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3204,9 +3627,66 @@
     ]
   },
   {
-    "Name": "Long_Summer_Dress",
+    "Name": "Leopard_Print_Backless_Dress_Back",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "leopard_print_backless_dress_back.png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Leopard_Print_Backless_Dress_Front ",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "leopard_print_backless_dress_front .png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Leopard_Print_Backless_Dress_Side",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "leopard_print_backless_dress_side.png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Long_Summer_Dress 1",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3216,7 +3696,64 @@
         "Images": [
           {
             "File": "long_summer_dress-1.png",
-            "IsPrimary": false
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Long_Summer_Dress_Back",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "long_summer_dress_back.png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Long_Summer_Dress_Front ",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "long_summer_dress_front .png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Long_Summer_Dress_Side",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "long_summer_dress_side.png",
+            "IsPrimary": true
           }
         ]
       }
@@ -3225,7 +3762,7 @@
   {
     "Name": "Maroon_Ruched Bodycon Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3252,7 +3789,7 @@
   {
     "Name": "Pink Sleeveless Summer Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3279,7 +3816,7 @@
   {
     "Name": "Pink_Plus_Size_Wrap_Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3306,7 +3843,7 @@
   {
     "Name": "Pink_Ruched Bodycon Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3333,7 +3870,7 @@
   {
     "Name": "Pink_Sleeveless_Blazer Vest",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3360,7 +3897,7 @@
   {
     "Name": "Plus Size Low Waist Jeans",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3387,7 +3924,7 @@
   {
     "Name": "Red Sleeveless Summer Dress",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3414,7 +3951,7 @@
   {
     "Name": "White Long Coat",
     "Description": "Auto generated product",
-    "ImageBasePath": "/Images/Women",
+    "ImageBasePath": "Images/Women",
     "Variants": [
       {
         "Color": "Default",
@@ -3433,6 +3970,63 @@
           {
             "File": "white-long-coat-side.png",
             "IsPrimary": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Yellow_Summer_Dress_Back",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "yellow_summer_dress_back.png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Yellow_Summer_Dress_Front ",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "yellow_summer_dress_front .png",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Yellow_Summer_Dress_Side",
+    "Description": "Auto generated product",
+    "ImageBasePath": "Images/Women",
+    "Variants": [
+      {
+        "Color": "Default",
+        "Size": "M",
+        "Price": 0,
+        "Stock": 0,
+        "Images": [
+          {
+            "File": "yellow_summer_dress_side.png",
+            "IsPrimary": true
           }
         ]
       }

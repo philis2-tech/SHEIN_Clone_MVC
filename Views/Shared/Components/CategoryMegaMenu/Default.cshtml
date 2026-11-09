@@ -1,0 +1,114 @@
+﻿@model IEnumerable<SHEIN_Clone_MVC.Models.Product>
+@using SHEIN_Clone_MVC.Models
+
+@{
+    var categories = ViewBag.Categories as List<Category>
+    ?? new List<Category>();
+}
+
+<div class="mega-menu-panel" id="categoryMegaMenu">
+
+   
+    <div class="mega-menu-categories">
+        <h6>SHOP BY CATEGORY</h6>
+
+        @foreach (var category in categories)
+        {
+            <a asp-controller="Products"
+               asp-action="Index"
+               asp-route-categoryId="@category.Id"
+               class="mega-category-link">
+                <span>@category.Name</span>
+                <i class="bi bi-chevron-right"></i>
+            </a>
+        }
+
+        <a asp-controller="Products"
+           asp-action="Index"
+           class="mega-category-link view-all-link">
+            <span>View All Products</span>
+            <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="mega-menu-products">
+        <div class="mega-menu-heading">
+            <h6><i class="bi bi-grid-fill"></i> PICKS FOR YOU</h6>
+            <a asp-controller="Products" asp-action="Index">View all</a>
+        </div>
+
+        <div class="mega-product-grid">
+            @foreach (var product in Model.Take(8))
+            {
+                var images = product.ProductVariants?
+                .Where(v => v.ProductImages != null)
+                .SelectMany(v => v.ProductImages)
+                .ToList();
+
+                var image = images?.FirstOrDefault(i => i.IsPrimary)
+                ?? images?.FirstOrDefault();
+
+                <a asp-controller="Products"
+                   asp-action="Details"
+                   asp-route-id="@product.Id"
+                   class="mega-product-item">
+
+                    @if (image != null &&
+                                    !string.IsNullOrWhiteSpace(image.ImagePath))
+                    {
+                        <img src="@image.ImagePath"
+                             alt="@product.Name"
+                             loading="lazy" />
+                    }
+                    else
+                    {
+                        <div class="mega-product-placeholder">
+                            <i class="bi bi-image"></i>
+                        </div>
+                    }
+
+                    <span>@product.Name</span>
+                </a>
+            }
+        </div>
+    </div>
+
+    <div class="mega-menu-recommendations">
+        <h6>YOU MAY ALSO LIKE</h6>
+
+        @foreach (var product in Model.Skip(8).Take(8))
+        {
+            var images = product.ProductVariants?
+            .Where(v => v.ProductImages != null)
+            .SelectMany(v => v.ProductImages)
+            .ToList();
+
+            var image = images?.FirstOrDefault(i => i.IsPrimary)
+            ?? images?.FirstOrDefault();
+
+            <a asp-controller="Products"
+               asp-action="Details"
+               asp-route-id="@product.Id"
+               class="mega-recommendation-item">
+
+                @if (image != null &&
+                            !string.IsNullOrWhiteSpace(image.ImagePath))
+                {
+                    <img src="@image.ImagePath"
+                         alt="@product.Name"
+                         loading="lazy" />
+                }
+                else
+                {
+                    <div class="mega-product-placeholder">
+                        <i class="bi bi-image"></i>
+                    </div>
+                }
+
+                <span>@product.Name</span>
+            </a>
+        }
+    </div>
+   
+
+</div>
